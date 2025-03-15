@@ -1,11 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://2p34a5pdrnq4"]
+[gd_scene load_steps=9 format=3 uid="uid://2p34a5pdrnq4"]
 
 [ext_resource type="Script" uid="uid://brop88kk5pknk" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://mxjk2oruff3x" path="res://player/camera_3d.gd" id="2_rkbax"]
+[ext_resource type="Shader" uid="uid://ckx67t3t7x3ge" path="res://player/outline.gdshader" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://dqe11nq6i5a2" path="res://player/stencil_viewport.gd" id="3_yw30f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 radius = 0.3
 height = 1.75
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rkbax"]
+radius = 0.3
+height = 1.75
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qjkh3"]
+viewport_path = NodePath("StencilViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1dw6"]
+resource_local_to_scene = true
+shader = ExtResource("3_g1dw6")
+shader_parameter/lineWeight = 1.0
+shader_parameter/outlineColor = Color(3, 0.8, 0, 0.8)
+shader_parameter/stencilMask = SubResource("ViewportTexture_qjkh3")
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_oul6g")
@@ -13,7 +29,35 @@ script = ExtResource("1_oul6g")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_sh265")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 3
+mesh = SubResource("CapsuleMesh_rkbax")
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.399468, 0)
+transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 15, 14.3023, 15)
+projection = 1
 current = true
+size = 12.0
 script = ExtResource("2_rkbax")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D"]
+remote_path = NodePath("../../StencilViewport/Camera3D")
+
+[node name="StencilViewport" type="SubViewport" parent="."]
+transparent_bg = true
+use_hdr_2d = true
+script = ExtResource("3_yw30f")
+
+[node name="Camera3D" type="Camera3D" parent="StencilViewport"]
+transform = Transform3D(0.707107, -0.353553, 0.612373, 0, 0.866026, 0.5, -0.707107, -0.353553, 0.612373, 15, 14.3023, 15)
+cull_mask = 1047554
+projection = 1
+size = 12.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_g1dw6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

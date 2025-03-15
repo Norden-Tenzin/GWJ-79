@@ -3,18 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://dwmxl25614ht7" path="res://boss/y bot walk.glb" id="1_b105h"]
 [ext_resource type="Script" uid="uid://da2sa8wyfbgaq" path="res://boss/boss.gd" id="1_nnfxe"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npr4l"]
-radius = 0.3
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nnfxe"]
+radius = 0.25
 height = 1.75
 
 [node name="Boss" type="CharacterBody3D"]
 script = ExtResource("1_nnfxe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_npr4l")
+shape = SubResource("CapsuleShape3D_nnfxe")
 
 [node name="y bot walk" parent="." instance=ExtResource("1_b105h")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -0.767234, 0)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -0.831157, 0)
 
 [node name="Skeleton3D" parent="y bot walk/Armature" index="0"]
 bones/0/position = Vector3(0.0224144, -0.032387, -0.00221564)

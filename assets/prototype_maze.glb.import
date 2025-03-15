@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://babi1xkp61vf5"
-path="res://.godot/imported/test.glb-b7cd63e55133c35658a284ee17d9a0db.scn"
+uid="uid://by6tpifi3k5bs"
+path="res://.godot/imported/prototype_maze.glb-1328888f9d57f543a6d7687ae272405a.scn"
 
 [deps]
 
-source_file="res://test.glb"
-dest_files=["res://.godot/imported/test.glb-b7cd63e55133c35658a284ee17d9a0db.scn"]
+source_file="res://assets/prototype_maze.glb"
+dest_files=["res://.godot/imported/prototype_maze.glb-1328888f9d57f543a6d7687ae272405a.scn"]
 
 [params]
 
