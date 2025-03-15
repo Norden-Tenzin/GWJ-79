@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnang8e4w0lot"]
+
+[ext_resource type="Script" uid="uid://vi1shch2ti46" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://givc3ehxf8ol" path="res://floor.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://c0y1cx7bdg81u" path="res://boss/boss.tscn" id="4_1bvp3"]
+
+[sub_resource type="Environment" id="Environment_h2yge"]
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 10.0
+sdfgi_enabled = true
+
+[node name="Main" type="Node"]
+script = ExtResource("1_h2yge")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h2yge")
+
+[node name="Floor" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="Player" parent="." instance=ExtResource("2_0xm2m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.291674, 1.03228, -8.32486)
+
+[node name="Boss" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297344, 0.979406, -3.6269)
