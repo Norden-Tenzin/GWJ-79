@@ -11,21 +11,34 @@ config_version=5
 [application]
 
 config/name="GWJ-97"
-run/main_scene="uid://dnang8e4w0lot"
+run/main_scene="uid://xdwl76nvcgew"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://global.gd"
+GlobalEnumsAutoload="*res://utils/autoloads/global_enums.gd"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=2
 
 [dotnet]
 
 project/assembly_name="GWJ-97"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false
+
+[global_group]
+
+Player="Group for player and player only"
 
 [input]
 

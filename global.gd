@@ -1,5 +1,4 @@
 extends Node
 
-
-var player
-var main
+var player: CharacterBody3D
+var main: Node
