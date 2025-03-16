@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d07ffdqakf4sl"]
+
+[ext_resource type="Script" uid="uid://btwfgt6lylrla" path="res://components/SpawnComponents/spawner.gd" id="1_q723l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghc3u"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ghc3u"]
+material = SubResource("StandardMaterial3D_ghc3u")
+
+[node name="Spawner" type="Marker3D"]
+script = ExtResource("1_q723l")
+
+[node name="Visualizer" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00457859, 0, -0.00535762)
+
+[node name="Marker" type="MeshInstance3D" parent="Visualizer"]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, -0.00625944, 1, -0.000770569)
+mesh = SubResource("CylinderMesh_ghc3u")

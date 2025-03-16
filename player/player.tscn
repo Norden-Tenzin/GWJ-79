@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://brop88kk5pknk" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://mxjk2oruff3x" path="res://player/camera_3d.gd" id="2_rkbax"]
-[ext_resource type="Shader" uid="uid://ckx67t3t7x3ge" path="res://player/outline.gdshader" id="3_g1dw6"]
-[ext_resource type="Script" uid="uid://dqe11nq6i5a2" path="res://player/stencil_viewport.gd" id="3_yw30f"]
+[ext_resource type="Shader" path="res://player/outline.gdshader" id="3_g1dw6"]
+[ext_resource type="Script" path="res://player/stencil_viewport.gd" id="3_yw30f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 radius = 0.3
