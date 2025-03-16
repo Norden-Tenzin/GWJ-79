@@ -84,4 +84,6 @@ debug_enabled = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.874515, 0)
 animation_path = NodePath("../y bot walk/AnimationPlayer")
 
+[connection signal="navigation_finished" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_navigation_finished"]
+
 [editable path="y bot walk"]

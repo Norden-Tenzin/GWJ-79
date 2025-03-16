@@ -1,4 +1,13 @@
 extends Camera3D
+
+func _input(e: InputEvent) -> void:
+	if Input.is_action_pressed("camera mode change"):
+		if transform.origin.x == 15:
+			transform.origin.x = 0
+			look_at($"..".global_position)
+		else:
+			transform.origin.x = 15
+			look_at($"..".global_position)
 #
 #var rot_x: float = 0
 #var rot_y: float = 0

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://brop88kk5pknk" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://mxjk2oruff3x" path="res://player/camera_3d.gd" id="2_rkbax"]
-[ext_resource type="Shader" path="res://player/outline.gdshader" id="3_g1dw6"]
-[ext_resource type="Script" path="res://player/stencil_viewport.gd" id="3_yw30f"]
+[ext_resource type="Shader" uid="uid://ckx67t3t7x3ge" path="res://player/outline.gdshader" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://dqe11nq6i5a2" path="res://player/stencil_viewport.gd" id="3_yw30f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 radius = 0.3
@@ -34,7 +34,7 @@ layers = 3
 mesh = SubResource("CapsuleMesh_rkbax")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 15, 14.3023, 15)
+transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 15, 14.302, 15)
 projection = 1
 current = true
 size = 12.0
@@ -49,7 +49,7 @@ use_hdr_2d = true
 script = ExtResource("3_yw30f")
 
 [node name="Camera3D" type="Camera3D" parent="StencilViewport"]
-transform = Transform3D(0.707107, -0.353553, 0.612373, 0, 0.866026, 0.5, -0.707107, -0.353553, 0.612373, 15, 14.3023, 15)
+transform = Transform3D(0.707107, -0.353553, 0.612373, 0, 0.866026, 0.5, -0.707107, -0.353553, 0.612373, 15, 14.302, 15)
 cull_mask = 1047554
 projection = 1
 size = 12.0
