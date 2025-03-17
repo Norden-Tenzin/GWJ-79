@@ -5,3 +5,9 @@ enum CandyType {
 	Grow,
 	Shrink
 }
+
+enum AudioName {
+	None,
+	Normal,
+	Small
+}

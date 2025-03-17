@@ -1,7 +1,6 @@
 @tool
 extends Node3D
 
-
 @export var candy_stat: CandyStats
 @onready var mesh_instance: MeshInstance3D = %Mesh
 

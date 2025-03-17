@@ -1,5 +1,8 @@
 extends Control
 
+func _ready() -> void:
+	Global.audio_manager.play(GlobalEnums.AudioName.Normal)
+
 func _on_new_game_button_pressed() -> void:
 	print("NEW GAME PRESSED")
 	Global.scene_manager.change_3d_scene("res://scenes/levels/level_template.tscn")

@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnlstda2po58o"]
+[gd_scene load_steps=8 format=3 uid="uid://bnlstda2po58o"]
 
+[ext_resource type="Script" uid="uid://daf6fxst6ak87" path="res://scenes/levels/level_template.gd" id="1_7hipx"]
 [ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="3_gr3xe"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ds0u5"]
@@ -20,6 +21,7 @@ glow_enabled = true
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ds0u5"]
 
 [node name="LevelTemplate" type="Node3D"]
+script = ExtResource("1_7hipx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
