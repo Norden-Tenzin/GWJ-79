@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://xxjb31m81qor" path="res://scenes/audio/audio_manager.gd" id="1_r1srg"]
 
-[node name="AudioManager" type="Node" node_paths=PackedStringArray("audio_player")]
+[node name="MusicManager" type="Node" node_paths=PackedStringArray("music_player")]
 script = ExtResource("1_r1srg")
-audio_player = NodePath("AudioStreamPlayer")
+music_player = NodePath("MusicStreamPlayer")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+bus = &"Music"

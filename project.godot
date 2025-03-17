@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GWJ-97"
-run/main_scene="uid://xdwl76nvcgew"
+run/main_scene="uid://b5tre1l3fvutc"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
@@ -32,6 +32,10 @@ gdscript/warnings/untyped_declaration=2
 directories/dch_directory={}
 directories/dtl_directory={}
 
+[display]
+
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="GWJ-97"
@@ -48,6 +52,10 @@ import/blender/enabled=false
 
 Player="Group for player and player only"
 NavigationArea=""
+
+[gui]
+
+theme/custom="uid://cyst5nhklxtvu"
 
 [input]
 

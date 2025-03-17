@@ -1,28 +1,37 @@
 extends Node
 class_name AudioManager
 
-var normal_music: AudioStream = preload("res://assets/audio/normal.mp3")
-var small_music: AudioStream = preload("res://assets/audio/small.mp3")
+# How to add more audio tracks
+# 1. add a preaload var in this file
+# 2. create a enum for that file in GlobalEnum.AudioName
+# 3. handle that enum in play 
 
-@export var audio_player: AudioStreamPlayer
-var curr_audio: GlobalEnums.AudioName
+var normal_music: AudioStream = preload("res://assets/audio/music/normal.mp3")
+var small_music: AudioStream = preload("res://assets/audio/music/small.mp3")
+
+@export var music_player: AudioStreamPlayer
+var curr_audio: GlobalEnums.MusicName
 
 func _ready() -> void:
 	Global.audio_manager = self
 
-func play(new_audio: GlobalEnums.AudioName) -> void:
-	match new_audio:
-		GlobalEnums.AudioName.Normal : 
-			curr_audio = GlobalEnums.AudioName.Normal
-			audio_player.stream = normal_music
-		GlobalEnums.AudioName.Small : 
-			curr_audio = GlobalEnums.AudioName.Small
-			audio_player.stream = small_music
-		_ :
-			curr_audio = GlobalEnums.AudioName.Normal
-			audio_player.stream = normal_music
+func play(new_music: GlobalEnums.MusicName) -> void:
+	if curr_audio != new_music:
+		match new_music:
+			GlobalEnums.MusicName.Normal : 
+				curr_audio = GlobalEnums.MusicName.Normal
+				self.play_audio(music_player, normal_music)
+			GlobalEnums.MusicName.Small : 
+				curr_audio = GlobalEnums.MusicName.Small
+				self.play_audio(music_player, small_music)
+			_ :
+				curr_audio = GlobalEnums.MusicName.Normal
+				self.play_audio(music_player, normal_music)
+
+func play_audio(audio_player: AudioStreamPlayer, audio: AudioStream) -> void:
+	audio_player.stream = audio
 	audio_player.play()
 
 func stop() -> void:
-	curr_audio = GlobalEnums.AudioName.None
-	audio_player.stop()
+	curr_audio = GlobalEnums.MusicName.None
+	music_player.stop()

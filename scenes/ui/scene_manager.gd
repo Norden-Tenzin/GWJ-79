@@ -12,6 +12,25 @@ func _ready() -> void:
 	Global.scene_manager = self
 	curr_gui_scene = $GUI/SplashScreenManager
 
+# a pause menu
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("escape"):
+		# checks if the world3d has children aka gamein in play
+		if world3d.get_children().size() > 0:
+			var children: Array[Node] = gui.get_children()
+			if children.size() > 0:
+				get_tree().paused = !get_tree().paused
+				for child in children:
+					child.queue_free()
+			else:
+				get_tree().paused = !get_tree().paused
+				Global.scene_manager.change_gui_scene(
+					"res://scenes/ui/pause_menu.tscn",
+					true,
+					false,
+					false
+				)
+
 func change_3d_scene(
 	new_scene: String,
 	delete: bool = true,
@@ -34,7 +53,8 @@ func change_3d_scene(
 	var new_scene_obj: Node3D = load(new_scene).instantiate()
 	world3d.add_child(new_scene_obj)
 	curr_3d_scene = new_scene_obj
-	transition_manager.transition(transition_in, seconds)
+	if transition:
+		transition_manager.transition(transition_in, seconds)
 
 func change_gui_scene(
 	new_scene: String,
@@ -58,4 +78,5 @@ func change_gui_scene(
 	var new_scene_obj: Control = load(new_scene).instantiate()
 	gui.add_child(new_scene_obj)
 	curr_gui_scene = new_scene_obj
-	transition_manager.transition(transition_in, seconds)
+	if transition:
+		transition_manager.transition(transition_in, seconds)

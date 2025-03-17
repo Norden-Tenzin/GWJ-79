@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnlstda2po58o"]
+[gd_scene load_steps=9 format=3 uid="uid://bnlstda2po58o"]
 
 [ext_resource type="Script" uid="uid://daf6fxst6ak87" path="res://scenes/levels/level_template.gd" id="1_7hipx"]
+[ext_resource type="PackedScene" uid="uid://c0y1cx7bdg81u" path="res://boss/boss.tscn" id="3_ds0u5"]
 [ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="3_gr3xe"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ds0u5"]
@@ -41,3 +42,6 @@ shape = SubResource("WorldBoundaryShape3D_ds0u5")
 
 [node name="Player" parent="." instance=ExtResource("3_gr3xe")]
 transform = Transform3D(-0.999985, 0, -0.00542796, 0, 1, 0, 0.00542796, 0, -0.999985, -0.746309, 0.889842, 6.69528)
+
+[node name="Boss" parent="." instance=ExtResource("3_ds0u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.63033, 0.874515, 2.3313)

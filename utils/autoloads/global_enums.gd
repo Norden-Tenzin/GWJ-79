@@ -6,7 +6,7 @@ enum CandyType {
 	Shrink
 }
 
-enum AudioName {
+enum MusicName {
 	None,
 	Normal,
 	Small

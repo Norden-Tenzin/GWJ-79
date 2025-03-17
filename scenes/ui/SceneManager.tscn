@@ -6,12 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://b2bx2gdyg5o7c" path="res://scenes/audio/AudioManager.tscn" id="4_hu4x8"]
 
 [node name="SceneManager" type="Node" node_paths=PackedStringArray("world3d", "gui", "transition_manager")]
+process_mode = 3
 script = ExtResource("1_o6d0x")
 world3d = NodePath("World3D")
 gui = NodePath("GUI")
 transition_manager = NodePath("TransitionManager")
 
+[node name="AudioManager" parent="." instance=ExtResource("4_hu4x8")]
+
 [node name="World3D" type="Node3D" parent="."]
+process_mode = 1
 
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
@@ -26,5 +30,3 @@ layout_mode = 1
 
 [node name="TransitionManager" parent="." instance=ExtResource("2_ik8mu")]
 mouse_filter = 2
-
-[node name="AudioManager" parent="." instance=ExtResource("4_hu4x8")]
