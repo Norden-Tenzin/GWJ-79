@@ -8,6 +8,16 @@ class_name SceneManager
 var curr_3d_scene: Node3D
 var curr_gui_scene: Control
 
+var curr_3d_scene_name: GlobalEnums.SceneName
+var curr_gui_scene_name: GlobalEnums.SceneName
+
+# Levels
+const level_1: String = "res://scenes/levels/puzzle1.tscn"
+# UI
+const main_menu: String = "res://scenes/ui/main_menu.tscn"
+const pause_menu: String = "res://scenes/ui/pause_menu.tscn"
+const settings_menu: String = "res://scenes/ui/settings_menu.tscn"
+
 func _ready() -> void:
 	Global.scene_manager = self
 	curr_gui_scene = $GUI/SplashScreenManager
@@ -25,14 +35,26 @@ func _input(_event: InputEvent) -> void:
 			else:
 				get_tree().paused = !get_tree().paused
 				Global.scene_manager.change_gui_scene(
-					"res://scenes/ui/pause_menu.tscn",
+					GlobalEnums.SceneName.PauseMenu,
 					true,
 					false,
 					false
 				)
 
-func change_3d_scene(
-	new_scene: String,
+func get_scene(scene_name: GlobalEnums.SceneName) -> Node:
+	match scene_name:
+		GlobalEnums.SceneName.MainMenu:
+			return load(main_menu).instantiate()
+		GlobalEnums.SceneName.PauseMenu:
+			return load(pause_menu).instantiate()
+		GlobalEnums.SceneName.SettingsMenu:
+			return load(settings_menu).instantiate()
+		GlobalEnums.SceneName.Level1:
+			return load(level_1).instantiate()
+		_ :
+			return load(main_menu).instantiate()
+
+func reset_3d_scene(
 	delete: bool = true,
 	keep_running: bool = false,
 	transition: bool = true,
@@ -50,14 +72,21 @@ func change_3d_scene(
 			curr_3d_scene.visible = false
 		else:
 			gui.remove_child(curr_3d_scene)
-	var new_scene_obj: Node3D = load(new_scene).instantiate()
+	var new_scene_obj: Node3D = get_scene(curr_3d_scene_name)
 	world3d.add_child(new_scene_obj)
 	curr_3d_scene = new_scene_obj
 	if transition:
 		transition_manager.transition(transition_in, seconds)
+	# Reset gui and un pause the game
+	var children: Array[Node] = gui.get_children()
+	if children.size() > 0:
+		get_tree().paused = !get_tree().paused
+		for child in children:
+			child.queue_free()
+	
 
-func change_gui_scene(
-	new_scene: String,
+func change_3d_scene(
+	scene_name: GlobalEnums.SceneName,
 	delete: bool = true,
 	keep_running: bool = false,
 	transition: bool = true,
@@ -65,6 +94,33 @@ func change_gui_scene(
 	transition_out: String = "fade_out",
 	seconds: float = 1.0
 ) -> void:
+	curr_3d_scene_name = scene_name
+	if transition:
+		transition_manager.transition(transition_out, seconds)
+		await transition_manager.animation_player.animation_finished
+	if curr_3d_scene != null:
+		if delete: 
+			curr_3d_scene.queue_free()
+		elif keep_running:
+			curr_3d_scene.visible = false
+		else:
+			gui.remove_child(curr_3d_scene)
+	var new_scene_obj: Node3D = get_scene(scene_name)
+	world3d.add_child(new_scene_obj)
+	curr_3d_scene = new_scene_obj
+	if transition:
+		transition_manager.transition(transition_in, seconds)
+
+func change_gui_scene(
+	scene_name: GlobalEnums.SceneName,
+	delete: bool = true,
+	keep_running: bool = false,
+	transition: bool = true,
+	transition_in: String = "fade_in",
+	transition_out: String = "fade_out",
+	seconds: float = 1.0
+) -> void:
+	curr_gui_scene_name = scene_name
 	if transition:
 		transition_manager.transition(transition_out, seconds)
 		await transition_manager.animation_player.animation_finished
@@ -75,7 +131,7 @@ func change_gui_scene(
 			curr_gui_scene.visible = false
 		else:
 			gui.remove_child(curr_gui_scene)
-	var new_scene_obj: Control = load(new_scene).instantiate()
+	var new_scene_obj: Control = get_scene(scene_name)
 	gui.add_child(new_scene_obj)
 	curr_gui_scene = new_scene_obj
 	if transition:

@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_pressed():
-		Global.scene_manager.change_gui_scene("res://scenes/ui/main_menu.tscn")
+		Global.scene_manager.change_gui_scene(GlobalEnums.SceneName.MainMenu)
 
 func get_splash_screens() -> void:
 	for screen in splash_screen_container.get_children():
@@ -32,4 +32,4 @@ func fade() -> void:
 		tween.tween_property(screen, "modulate:a", 0.0, fade_out_time)
 		tween.tween_interval(out_time)
 		await tween.finished
-	Global.scene_manager.change_gui_scene("res://scenes/ui/main_menu.tscn")
+	Global.scene_manager.change_gui_scene(GlobalEnums.SceneName.MainMenu)

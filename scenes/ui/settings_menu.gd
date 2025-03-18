@@ -22,14 +22,14 @@ func _ready() -> void:
 func _on_back_button_pressed() -> void:
 	if Global.scene_manager.world3d.get_children().size() > 0:
 		Global.scene_manager.change_gui_scene(
-			"res://scenes/ui/pause_menu.tscn",
+			GlobalEnums.SceneName.PauseMenu,
 			true, 
 			false,
 			false
 		)
 	else:
 		Global.scene_manager.change_gui_scene(
-			"res://scenes/ui/main_menu.tscn",
+			GlobalEnums.SceneName.MainMenu,
 			true, 
 			false,
 			false

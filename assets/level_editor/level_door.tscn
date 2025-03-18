@@ -198,7 +198,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_tr8e2")
 
 [node name="Cube_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -2)
 mesh = SubResource("ArrayMesh_t0kpc")
 skeleton = NodePath("")
 
@@ -209,7 +209,7 @@ sync_to_physics = false
 shape = SubResource("ConcavePolygonShape3D_yvw6k")
 
 [node name="Cube_002" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 2)
 mesh = SubResource("ArrayMesh_6403q")
 skeleton = NodePath("")
 

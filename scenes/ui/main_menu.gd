@@ -5,12 +5,12 @@ func _ready() -> void:
 
 # Menu
 func _on_start_game_button_pressed() -> void:
-	Global.scene_manager.change_3d_scene("res://scenes/levels/puzzle1.tscn")
+	Global.scene_manager.change_3d_scene(GlobalEnums.SceneName.Level1)
 	self.queue_free()
 
 func _on_settings_button_pressed() -> void:
 	Global.scene_manager.change_gui_scene(
-		"res://scenes/ui/settings_menu.tscn",
+		GlobalEnums.SceneName.SettingsMenu,
 		true,
 		false,
 		false

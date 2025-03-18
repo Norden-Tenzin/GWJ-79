@@ -85,5 +85,6 @@ size_flags_horizontal = 3
 
 [connection signal="pressed" from="HBoxContainer/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer/ReloadButton" to="." method="_on_reload_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
