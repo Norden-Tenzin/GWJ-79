@@ -17,4 +17,5 @@ enum SceneName {
 	SettingsMenu,
 	PauseMenu,
 	Level1,
+	Level2,
 }

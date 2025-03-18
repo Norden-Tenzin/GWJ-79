@@ -13,6 +13,7 @@ var curr_gui_scene_name: GlobalEnums.SceneName
 
 # Levels
 const level_1: String = "res://scenes/levels/puzzle1.tscn"
+const level_2: String = "res://scenes/levels/puzzle2.tscn"
 # UI
 const main_menu: String = "res://scenes/ui/main_menu.tscn"
 const pause_menu: String = "res://scenes/ui/pause_menu.tscn"
@@ -51,6 +52,8 @@ func get_scene(scene_name: GlobalEnums.SceneName) -> Node:
 			return load(settings_menu).instantiate()
 		GlobalEnums.SceneName.Level1:
 			return load(level_1).instantiate()
+		GlobalEnums.SceneName.Level2:
+			return load(level_2).instantiate()
 		_ :
 			return load(main_menu).instantiate()
 
