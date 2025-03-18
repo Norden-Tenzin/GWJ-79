@@ -10,5 +10,5 @@ func _ready() -> void:
 		mesh_instance.material_overlay = candy_stat.material
 
 func _on_area_component_player_entered() -> void:
-	Global.picked_up.emit(candy_stat.type, self)
+	Global.picked_up.emit(candy_stat.type, candy_stat.growth_amount, candy_stat.speed_change, self)
 	queue_free()

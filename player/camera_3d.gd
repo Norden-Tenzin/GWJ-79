@@ -1,13 +1,27 @@
 extends Camera3D
 
+var direction: Basis = Basis()
+
+func _ready() -> void:
+	direction.x = transform.basis.x
+	direction.z = -transform.basis.z
+	direction.x.y = 0
+	direction.z.y = 0
+
 func _input(e: InputEvent) -> void:
 	if Input.is_action_pressed("camera mode change"):
 		if transform.origin.x == 15:
-			transform.origin.x = 0
-			look_at($"..".global_position)
+			transform = $"../O2".transform
+			direction.x = transform.basis.x
+			direction.z = transform.basis.y
+			direction.x.y = 0
+			direction.z.y = 0
 		else:
-			transform.origin.x = 15
-			look_at($"..".global_position)
+			transform = $"../O1".transform
+			direction.x = transform.basis.x
+			direction.z = -transform.basis.z
+			direction.x.y = 0
+			direction.z.y = 0
 #
 #var rot_x: float = 0
 #var rot_y: float = 0

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqm0vkwj3mjts"]
+
+[ext_resource type="PackedScene" uid="uid://bngpxrgk40chq" path="res://assets/level_editor/level_cube.glb" id="1_8lbmr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dgfsd"]
+size = Vector3(2, 2, 2)
+
+[node name="level_cube" instance=ExtResource("1_8lbmr")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_dgfsd")
