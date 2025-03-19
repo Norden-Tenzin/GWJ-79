@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://2nm7fdrdekse"]
+
+[ext_resource type="Shader" uid="uid://hvxatcltq76f" path="res://scenes/portal/gradient.gdshader" id="1_2pe5p"]
+[ext_resource type="Script" uid="uid://cpfgurlyd5hil" path="res://scenes/portal/portal.gd" id="1_umpx7"]
+[ext_resource type="PackedScene" uid="uid://dbma7iytxf8su" path="res://components/area_component/area_component.tscn" id="2_8j420"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fuw3p"]
+render_priority = 0
+shader = ExtResource("1_2pe5p")
+shader_parameter/color_bottom = Color(1, 0, 0, 0.866667)
+shader_parameter/color_top = Color(0, 0, 0, 0)
+shader_parameter/min_height = 0.0
+shader_parameter/max_height = 2.0
+shader_parameter/min_opacity = 0.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fuw3p"]
+material = SubResource("ShaderMaterial_fuw3p")
+rings = 0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_umpx7"]
+height = 3.96045
+radius = 1.28271
+
+[node name="Portal" type="Node3D"]
+script = ExtResource("1_umpx7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.00425327, 2.00564, -0.00750375)
+mesh = SubResource("CylinderMesh_fuw3p")
+
+[node name="AreaComponent" parent="." instance=ExtResource("2_8j420")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.00425327, 2.00564, -0.00750375)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaComponent"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00212663, -0.0028193, 0.00375187)
+shape = SubResource("CylinderShape3D_umpx7")
+
+[connection signal="body_entered" from="AreaComponent" to="AreaComponent" method="_on_body_entered"]
+[connection signal="player_entered" from="AreaComponent" to="." method="_on_area_component_player_entered"]

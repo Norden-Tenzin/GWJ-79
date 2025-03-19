@@ -11,3 +11,11 @@ enum MusicName {
 	Normal,
 	Small
 }
+
+enum SceneName {
+	MainMenu,
+	SettingsMenu,
+	PauseMenu,
+	Level1,
+	Level2,
+}

@@ -72,6 +72,7 @@ texture_margin_bottom = 10.0
 [resource]
 GrayButton/base_type = &"Button"
 GrayButton/colors/font_color = Color(0.35, 0.35, 0.35, 1)
+GrayButton/colors/font_focus_color = Color(0.34902, 0.34902, 0.34902, 1)
 GrayButton/colors/font_hover_color = Color(0.34902, 0.34902, 0.34902, 1)
 GrayButton/colors/font_pressed_color = Color(0.34902, 0.34902, 0.34902, 1)
 GrayButton/styles/hover = SubResource("StyleBoxTexture_egj6q")

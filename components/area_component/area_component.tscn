@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://dbma7iytxf8su"]
+[gd_scene load_steps=2 format=3 uid="uid://dbma7iytxf8su"]
+
+[ext_resource type="Script" uid="uid://blybkeqw743v4" path="res://components/area_component/area_component.gd" id="1_5yr3d"]
 
 [node name="AreaComponent" type="Area3D"]
+script = ExtResource("1_5yr3d")
