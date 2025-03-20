@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2irq1ijvj64l"]
+
+[ext_resource type="Script" uid="uid://6b8waj1d0lqo" path="res://components/level_component/fan.gd" id="1_lgoi2"]
+[ext_resource type="Shader" uid="uid://beu0ttg0jv12k" path="res://components/level_component/wind.gdshader" id="2_k1ra6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_evsgb"]
+size = Vector3(2, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k1ra6"]
+size = Vector3(1, 1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lgoi2"]
+size = Vector3(1.9, 1.9, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_680jr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k1ra6"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_680jr")
+shader = ExtResource("2_k1ra6")
+shader_parameter/speed = 10.0
+shader_parameter/frequency = 20.0
+shader_parameter/wind_color = Color(0.8, 0.901961, 1, 1)
+shader_parameter/alpha_scale = 0.337
+shader_parameter/dropoff_start = 0.0
+shader_parameter/dropoff_end = 0.643
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lgoi2"]
+material = SubResource("ShaderMaterial_k1ra6")
+radial_segments = 32
+rings = 0
+cap_top = false
+cap_bottom = false
+
+[node name="Fan" type="Node3D"]
+script = ExtResource("1_lgoi2")
+push_force = 10.0
+min_distance = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+mesh = SubResource("BoxMesh_evsgb")
+
+[node name="FanStaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/FanStaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_k1ra6")
+
+[node name="Wind" type="ShapeCast3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+shape = SubResource("BoxShape3D_lgoi2")
+target_position = Vector3(0, 0, 0)
+
+[node name="WindMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -1.09278e-07, -2, 0, 2.5, -8.74228e-08, 0, 0, 2.5)
+mesh = SubResource("CylinderMesh_lgoi2")

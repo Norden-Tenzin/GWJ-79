@@ -10,7 +10,7 @@ shader = ExtResource("1_2pe5p")
 shader_parameter/color_bottom = Color(1, 0, 0, 0.866667)
 shader_parameter/color_top = Color(0, 0, 0, 0)
 shader_parameter/min_height = 0.0
-shader_parameter/max_height = 2.0
+shader_parameter/max_height = 0.9
 shader_parameter/min_opacity = 0.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_fuw3p"]
@@ -27,7 +27,7 @@ radius = 1.28271
 script = ExtResource("1_umpx7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.00425327, 2.00564, -0.00750375)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.00474107, 2.01085, -0.0128608)
 mesh = SubResource("CylinderMesh_fuw3p")
 
 [node name="AreaComponent" parent="." instance=ExtResource("2_8j420")]

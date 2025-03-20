@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FanStats" load_steps=3 format=3 uid="uid://c2juolnogsb8l"]
+
+[ext_resource type="Script" uid="uid://bkn3tj8vrieke" path="res://components/level_component/fan_stats.gd" id="1_dnd8n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dnd8n"]
+
+[resource]
+script = ExtResource("1_dnd8n")
+shape_len = 2.0
+enabled = true
+push_force = 10.0
+max_distance = 5.0
+shape = SubResource("BoxShape3D_dnd8n")
+metadata/_custom_type_script = "uid://bkn3tj8vrieke"
