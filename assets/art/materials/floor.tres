@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bgav0ibfa0da2"]
+
+[ext_resource type="Texture2D" uid="uid://bgy5nbwcnmubf" path="res://assets/art/textures/Cake_Floor_Base_color.png" id="1_xuall"]
+[ext_resource type="Texture2D" uid="uid://u0bmlfc25u7s" path="res://assets/art/textures/Cake_Floor_Normal_DirectX.png" id="2_xm00n"]
+
+[resource]
+albedo_color = Color(0.431373, 0.219608, 0.117647, 1)
+albedo_texture = ExtResource("1_xuall")
+roughness = 0.8
+normal_enabled = true
+normal_texture = ExtResource("2_xm00n")

@@ -1,0 +1,23 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bu4byykpi3vur"]
+
+[ext_resource type="Shader" uid="uid://cbuq2vo6pued2" path="res://assets/art/materials/cloud.gdshader" id="1_hrivg"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hrivg"]
+noise_type = 0
+frequency = 0.03
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hrivg"]
+width = 64
+height = 64
+seamless = true
+noise = SubResource("FastNoiseLite_hrivg")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_hrivg")
+shader_parameter/tint = Color(0.932266, 0.672476, 0.675607, 1)
+shader_parameter/noise_intensity = 1.0
+shader_parameter/noise_speed = 0.25
+shader_parameter/bubblyness = 0.5
+shader_parameter/noise = SubResource("NoiseTexture2D_hrivg")
