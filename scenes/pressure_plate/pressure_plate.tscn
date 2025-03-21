@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://3x5rrnu25nxo"]
+
+[ext_resource type="Script" uid="uid://bk0ky7xr2oj4r" path="res://scenes/pressure_plate/pressure_plate.gd" id="1_b5ir3"]
+[ext_resource type="PackedScene" uid="uid://dbma7iytxf8su" path="res://components/area_component/area_component.tscn" id="1_t7o26"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7o26"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8gfqw"]
+material = SubResource("StandardMaterial3D_t7o26")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t7o26"]
+size = Vector3(1.9, 0.1, 1.9)
+
+[node name="PressurePlate" type="Node3D"]
+script = ExtResource("1_b5ir3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_8gfqw")
+
+[node name="AreaComponent" parent="." instance=ExtResource("1_t7o26")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = SubResource("BoxShape3D_t7o26")
+
+[node name="DebugLabel" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Demo"
+
+[connection signal="body_entered" from="AreaComponent" to="AreaComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="AreaComponent" to="AreaComponent" method="_on_body_exited"]
+[connection signal="player_entered" from="AreaComponent" to="." method="_on_area_component_player_entered"]
+[connection signal="player_exited" from="AreaComponent" to="." method="_on_area_component_player_exited"]

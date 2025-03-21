@@ -25,3 +25,8 @@ enum SceneName {
 	Level1,
 	Level2,
 }
+
+enum PlateType {
+	Switch,
+	Hold,
+}

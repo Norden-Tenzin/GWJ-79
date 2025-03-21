@@ -24,6 +24,7 @@ shader_parameter/stencilMask = SubResource("ViewportTexture_qjkh3")
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 3
+platform_on_leave = 2
 script = ExtResource("1_oul6g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
