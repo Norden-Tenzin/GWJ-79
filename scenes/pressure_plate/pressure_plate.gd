@@ -10,7 +10,7 @@ var plate_state: bool = false
 func _ready() -> void:
 	pass
 
-func _on_area_component_player_entered(body: Node3D) -> void:
+func _on_area_component_node_entered(body: Node3D) -> void:
 	match plate_type:
 		GlobalEnums.PlateType.Switch:
 			plate_state = true
@@ -20,7 +20,7 @@ func _on_area_component_player_entered(body: Node3D) -> void:
 	plate_state_changed.emit(plate_state)
 	debug_label.text = str(plate_state)
 
-func _on_area_component_player_exited(body: Node3D) -> void:
+func _on_area_component_node_exited(body: Node3D) -> void:
 	match plate_type:
 		GlobalEnums.PlateType.Switch:
 			pass

@@ -11,7 +11,7 @@ func _ready() -> void:
 		mesh_instance.mesh = candy_stat.mesh
 		mesh_instance.material_overlay = candy_stat.material
 
-func _on_area_component_player_entered(body: Node3D) -> void:
+func _on_area_component_node_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		candy_picked_up.emit(candy_stat.type)
 		queue_free()

@@ -32,5 +32,5 @@ text = "Demo"
 
 [connection signal="body_entered" from="AreaComponent" to="AreaComponent" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaComponent" to="AreaComponent" method="_on_body_exited"]
-[connection signal="player_entered" from="AreaComponent" to="." method="_on_area_component_player_entered"]
-[connection signal="player_exited" from="AreaComponent" to="." method="_on_area_component_player_exited"]
+[connection signal="node_entered" from="AreaComponent" to="." method="_on_area_component_node_entered"]
+[connection signal="node_exited" from="AreaComponent" to="." method="_on_area_component_node_exited"]
