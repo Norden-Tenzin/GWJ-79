@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FanStats" load_steps=3 format=3 uid="uid://c2juolnogsb8l"]
 
-[ext_resource type="Script" uid="uid://bkn3tj8vrieke" path="res://components/level_component/fan_stats.gd" id="1_dnd8n"]
+[ext_resource type="Script" uid="uid://bkn3tj8vrieke" path="res://scenes/fan/fan_stats.gd" id="1_dnd8n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dnd8n"]
 

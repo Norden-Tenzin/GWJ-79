@@ -1,6 +1,8 @@
 @tool
 extends Node3D
 
+signal candy_picked_up(candy_type: GlobalEnums.CandyType)
+
 @export var candy_stat: CandyStats
 @onready var mesh_instance: MeshInstance3D = %Mesh
 
@@ -9,6 +11,6 @@ func _ready() -> void:
 		mesh_instance.mesh = candy_stat.mesh
 		mesh_instance.material_overlay = candy_stat.material
 
-func _on_area_component_player_entered() -> void:
-	Global.picked_up.emit(candy_stat.type, candy_stat.growth_amount, candy_stat.speed_change, self)
+func _on_area_component_player_entered(body: Node3D) -> void:
+	candy_picked_up.emit(candy_stat.type)
 	queue_free()

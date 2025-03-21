@@ -9,5 +9,5 @@ var master_volume: float = 1.0
 var music_volume: float = 1.0
 var sfx_volume: float = 1.0
 
-signal picked_up(type: GlobalEnums.CandyType, growth_amout: float, speed_change: float, candy_node: Node3D)
+#signal picked_up(type: GlobalEnums.CandyType, growth_amout: float, speed_change: float, candy_node: Node3D)
 signal level_lost

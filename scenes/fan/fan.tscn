@@ -1,16 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2irq1ijvj64l"]
+[gd_scene load_steps=10 format=3 uid="uid://c8q0jxygtgkut"]
 
-[ext_resource type="Script" uid="uid://6b8waj1d0lqo" path="res://components/level_component/fan.gd" id="1_lgoi2"]
+[ext_resource type="Script" uid="uid://6b8waj1d0lqo" path="res://scenes/fan/fan.gd" id="1_lgoi2"]
 [ext_resource type="Shader" uid="uid://beu0ttg0jv12k" path="res://components/level_component/wind.gdshader" id="2_k1ra6"]
+[ext_resource type="PackedScene" uid="uid://dbma7iytxf8su" path="res://components/area_component/area_component.tscn" id="3_eu6rs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_evsgb"]
 size = Vector3(2, 2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k1ra6"]
 size = Vector3(1, 1, 0.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lgoi2"]
-size = Vector3(1.9, 1.9, 5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_680jr"]
 
@@ -32,13 +30,14 @@ rings = 0
 cap_top = false
 cap_bottom = false
 
-[node name="Fan" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_680jr"]
+size = Vector3(2, 2, 5)
+
+[node name="Fan" type="Node3D" groups=["Fan"]]
 script = ExtResource("1_lgoi2")
-push_force = 10.0
-min_distance = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 mesh = SubResource("BoxMesh_evsgb")
 
 [node name="FanStaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
@@ -47,12 +46,18 @@ mesh = SubResource("BoxMesh_evsgb")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_k1ra6")
 
-[node name="Wind" type="ShapeCast3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
-shape = SubResource("BoxShape3D_lgoi2")
-target_position = Vector3(0, 0, 0)
-
 [node name="WindMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, -1.09278e-07, -2, 0, 2.5, -8.74228e-08, 0, 0, 2.5)
+transform = Transform3D(-2, 2.18557e-07, -7.64274e-15, 0, -1.09278e-07, -2, -1.74846e-07, -2.5, 8.74228e-08, 0, 0, -2.5)
 mesh = SubResource("CylinderMesh_lgoi2")
+
+[node name="AreaComponent" parent="." instance=ExtResource("3_eu6rs")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+shape = SubResource("BoxShape3D_680jr")
+
+[connection signal="body_entered" from="AreaComponent" to="AreaComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="AreaComponent" to="AreaComponent" method="_on_body_exited"]
+[connection signal="player_entered" from="AreaComponent" to="." method="_on_area_component_player_entered"]
+[connection signal="player_exited" from="AreaComponent" to="." method="_on_area_component_player_exited"]

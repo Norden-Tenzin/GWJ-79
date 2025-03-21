@@ -1,6 +1,12 @@
 extends Node
 class_name GlobalEnums
 
+enum PlayerState {
+	Small,
+	Normal,
+	Big,
+}
+
 enum CandyType {
 	Grow,
 	Shrink
