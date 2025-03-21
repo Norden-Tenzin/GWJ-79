@@ -5,7 +5,8 @@ signal eat_candy(candy_type: GlobalEnums.CandyType)
 @export var candy_count: int = 0
 
 func _ready() -> void:
-	Global.audio_manager.play(GlobalEnums.MusicName.Small)
+	if Global.audio_manager:
+		Global.audio_manager.play(GlobalEnums.MusicName.Small)
 	# Connects candy signals to a single function
 	for child in get_children():
 		if child.is_in_group("Candy"):
