@@ -7,7 +7,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_66bme"]
 
-[node name="Candy" type="Node3D"]
+[node name="Candy" type="Node3D" groups=["Candy"]]
 script = ExtResource("1_olwpn")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
@@ -22,4 +22,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00207132, 0.5, 4.93526e-05
 shape = SubResource("SphereShape3D_66bme")
 
 [connection signal="body_entered" from="AreaComponent" to="AreaComponent" method="_on_body_entered"]
-[connection signal="player_entered" from="AreaComponent" to="." method="_on_area_component_player_entered"]
+[connection signal="body_exited" from="AreaComponent" to="AreaComponent" method="_on_body_exited"]
+[connection signal="node_entered" from="AreaComponent" to="." method="_on_area_component_node_entered"]

@@ -1,11 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://sy4ia34svxyu"]
+[gd_scene load_steps=17 format=3 uid="uid://sy4ia34svxyu"]
 
+[ext_resource type="Script" uid="uid://swrwhtrrq3ef" path="res://scenes/levels/puzzle_1.gd" id="1_5y5qt"]
 [ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="1_inv1o"]
 [ext_resource type="PackedScene" uid="uid://hxhu0yda644h" path="res://components/level_component/Level.tscn" id="2_pybqu"]
 [ext_resource type="PackedScene" uid="uid://b2t7gqsl1k472" path="res://assets/level_editor/level_door.tscn" id="3_x7w6b"]
 [ext_resource type="PackedScene" uid="uid://5g586dy1b12s" path="res://scenes/candy/candy.tscn" id="4_x7w6b"]
 [ext_resource type="Script" uid="uid://xlnymbtxod8j" path="res://scenes/candy/candy_stats.gd" id="5_3ldik"]
 [ext_resource type="PackedScene" uid="uid://2nm7fdrdekse" path="res://scenes/portal/portal.tscn" id="6_3ldik"]
+[ext_resource type="PackedScene" uid="uid://c8q0jxygtgkut" path="res://scenes/fan/fan.tscn" id="7_y64ca"]
+[ext_resource type="PackedScene" uid="uid://dc62fbgadbiar" path="res://scenes/Box/Box.tscn" id="9_kx6ci"]
+[ext_resource type="PackedScene" uid="uid://3x5rrnu25nxo" path="res://scenes/pressure_plate/pressure_plate.tscn" id="10_dq2gy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y64ca"]
 albedo_color = Color(1, 0.380392, 1, 1)
@@ -36,9 +40,10 @@ speed_change = 0.0
 metadata/_custom_type_script = "uid://xlnymbtxod8j"
 
 [node name="Node" type="Node3D"]
+script = ExtResource("1_5y5qt")
 
 [node name="Player" parent="." instance=ExtResource("1_inv1o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0363355, 4.96415, 17.9398)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.683023, 4.96415, 18.2456)
 
 [node name="Level" parent="." instance=ExtResource("2_pybqu")]
 
@@ -60,7 +65,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99438, 2, 3.46934)
 candy_stat = SubResource("Resource_x7w6b")
 
 [node name="Portal" parent="." instance=ExtResource("6_3ldik")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.20198, 2, 4.48938)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.14103, 2, -8.23986)
 next_lvl = 4
+
+[node name="Fan" parent="." instance=ExtResource("7_y64ca")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.96618, 2.92415, 6.85426)
+
+[node name="Fan2" parent="." instance=ExtResource("7_y64ca")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.0132, 2.9593, 8.96887)
+
+[node name="Fan3" parent="." instance=ExtResource("7_y64ca")]
+transform = Transform3D(-0.999993, -0.00385717, -8.74221e-08, -0.00385717, 0.999993, -3.37204e-10, 8.74228e-08, 0, -1, -8.92303, 2.9593, 3.29191)
+
+[node name="Fan4" parent="." instance=ExtResource("7_y64ca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.53241, 2.9593, 9.00343)
+
+[node name="Fan5" parent="." instance=ExtResource("7_y64ca")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.86584, 2.9593, 0.915318)
+
+[node name="Box" parent="." instance=ExtResource("9_kx6ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.316185, 2.95, 10.3785)
+
+[node name="PressurePlate" parent="." instance=ExtResource("10_dq2gy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.82312, 2.01, 3.46239)
+
+[node name="PressurePlate2" parent="." instance=ExtResource("10_dq2gy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.80111, 2.01, 0.667256)
+plate_type = 1
+
+[connection signal="eat_candy" from="." to="Player" method="_on_node_eat_candy"]
+[connection signal="level_lost" from="Level/Area3D" to="." method="_on_area_3d_level_lost"]
+[connection signal="candy_picked_up" from="Candy" to="." method="_on_candy_candy_picked_up"]
+[connection signal="candy_picked_up" from="Candy2" to="." method="_on_candy_2_candy_picked_up"]
 
 [editable path="Level"]

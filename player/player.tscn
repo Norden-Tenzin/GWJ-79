@@ -24,6 +24,7 @@ shader_parameter/stencilMask = SubResource("ViewportTexture_qjkh3")
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 3
+platform_on_leave = 2
 script = ExtResource("1_oul6g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -67,3 +68,10 @@ transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.7071
 
 [node name="O2" type="Node3D" parent="."]
 transform = Transform3D(0, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 0, 14.302, 0)
+
+[node name="DebugLabel" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+billboard = 1
+text = "demo
+"
