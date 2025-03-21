@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://2p34a5pdrnq4"]
+[gd_scene load_steps=27 format=3 uid="uid://2p34a5pdrnq4"]
 
 [ext_resource type="Script" uid="uid://brop88kk5pknk" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://mxjk2oruff3x" path="res://player/camera_3d.gd" id="2_rkbax"]
 [ext_resource type="Shader" uid="uid://ckx67t3t7x3ge" path="res://player/outline.gdshader" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://dqe11nq6i5a2" path="res://player/stencil_viewport.gd" id="3_yw30f"]
+[ext_resource type="PackedScene" uid="uid://bp0e856x5ruxg" path="res://assets/kidcandy/kid.glb" id="5_qjkh3"]
+[ext_resource type="Script" uid="uid://d2hygi0o3an0x" path="res://player/ray_cast_3d.gd" id="6_g6k8r"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yw30f"]
 radius = 0.7
@@ -22,6 +24,66 @@ shader_parameter/lineWeight = 1.0
 shader_parameter/outlineColor = Color(3, 0.8, 0, 0.8)
 shader_parameter/stencilMask = SubResource("ViewportTexture_qjkh3")
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g6k8r"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_boad6"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rgyib"]
+animation = &"Pushing"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hg6s5"]
+animation = &"Running Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qjkh3"]
+animation = &"Slow run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8t03j"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ieo8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qjkh3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g6k8r"]
+xfade_time = 0.4
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_boad6"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rgyib"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hg6s5"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ebec5"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yllr7"]
+xfade_time = 0.4
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kb6p2"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qjkh3"]
+states/End/position = Vector2(899, 100)
+states/Idle/node = SubResource("AnimationNodeAnimation_g6k8r")
+states/Idle/position = Vector2(252, 155)
+states/Jump/node = SubResource("AnimationNodeAnimation_boad6")
+states/Jump/position = Vector2(608, 169)
+states/Pushing/node = SubResource("AnimationNodeAnimation_rgyib")
+states/Pushing/position = Vector2(526, 283)
+"states/Running Jump/node" = SubResource("AnimationNodeAnimation_hg6s5")
+"states/Running Jump/position" = Vector2(623, 49)
+"states/Slow Run/node" = SubResource("AnimationNodeAnimation_qjkh3")
+"states/Slow Run/position" = Vector2(399, 95)
+states/Start/position = Vector2(93, 155)
+transitions = ["Idle", "Slow Run", SubResource("AnimationNodeStateMachineTransition_8t03j"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_2ieo8"), "Slow Run", "Running Jump", SubResource("AnimationNodeStateMachineTransition_qjkh3"), "Running Jump", "Slow Run", SubResource("AnimationNodeStateMachineTransition_g6k8r"), "Slow Run", "Pushing", SubResource("AnimationNodeStateMachineTransition_boad6"), "Pushing", "Idle", SubResource("AnimationNodeStateMachineTransition_rgyib"), "Pushing", "Slow Run", SubResource("AnimationNodeStateMachineTransition_hg6s5"), "Slow Run", "Jump", SubResource("AnimationNodeStateMachineTransition_ebec5"), "Jump", "Slow Run", SubResource("AnimationNodeStateMachineTransition_yllr7"), "Slow Run", "Idle", SubResource("AnimationNodeStateMachineTransition_kb6p2")]
+
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 3
 script = ExtResource("1_oul6g")
@@ -30,6 +92,7 @@ script = ExtResource("1_oul6g")
 shape = SubResource("CylinderShape3D_yw30f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 layers = 3
 mesh = SubResource("CylinderMesh_yw30f")
 
@@ -67,3 +130,49 @@ transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.7071
 
 [node name="O2" type="Node3D" parent="."]
 transform = Transform3D(0, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 0, 14.302, 0)
+
+[node name="kid" parent="." instance=ExtResource("5_qjkh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.989241, 0)
+
+[node name="Skeleton3D" parent="kid/Armature" index="0"]
+bones/0/position = Vector3(0.0589747, -0.0411787, -0.00943589)
+bones/1/position = Vector3(0.00294949, 0.40342, -0.00478549)
+bones/1/rotation = Quaternion(0.0670101, -0.702911, -0.151831, 0.691645)
+bones/2/rotation = Quaternion(0.0487381, -0.0599858, -0.0117003, 0.99694)
+bones/3/rotation = Quaternion(0.0176706, -0.01677, -0.022412, 0.999452)
+bones/4/rotation = Quaternion(0.0173267, -0.016326, -0.0223184, 0.999467)
+bones/5/rotation = Quaternion(0.0340007, -0.000328691, 0.0269578, 0.999058)
+bones/6/rotation = Quaternion(-0.0409189, 0.0599573, 0.0441537, 0.996384)
+bones/7/rotation = Quaternion(4.65664e-10, -5.96047e-08, -4.65661e-10, 1)
+bones/8/rotation = Quaternion(-0.0800351, -0.359518, 0.929379, -0.0244064)
+bones/9/rotation = Quaternion(-0.0789423, 0.994489, 0.068845, -0.00446477)
+bones/10/rotation = Quaternion(-0.00705469, -0.00135924, -0.841742, 0.539832)
+bones/12/rotation = Quaternion(0.894503, 0.0161966, -0.0441157, 0.444585)
+bones/13/rotation = Quaternion(-0.152504, 0.917227, 0.163975, 0.329469)
+bones/14/rotation = Quaternion(0.0197919, -0.00013594, 0.693987, 0.719716)
+bones/16/rotation = Quaternion(0.107881, -0.0705554, 0.989047, 0.0719062)
+bones/17/rotation = Quaternion(0.0837144, 0.0215226, -0.365277, 0.926877)
+bones/18/rotation = Quaternion(0.468176, -0.508581, 0.486084, 0.534677)
+bones/19/rotation = Quaternion(0.647964, 0.0182441, -0.00595244, 0.76143)
+bones/21/rotation = Quaternion(-0.0169131, -0.090707, 0.854092, -0.511873)
+bones/22/rotation = Quaternion(-0.0699036, 0.0340816, -0.47008, 0.879191)
+bones/23/rotation = Quaternion(0.383011, -0.651143, 0.272115, 0.596044)
+bones/24/rotation = Quaternion(0.42009, -0.0132897, 0.00461613, 0.907373)
+
+[node name="roughness" parent="kid/Armature/Skeleton3D" index="0"]
+layers = 3
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../kid")
+root_motion_track = NodePath("Armature/Skeleton3D:mixamorig_Root")
+root_motion_local = false
+tree_root = SubResource("AnimationNodeStateMachine_qjkh3")
+anim_player = NodePath("../kid/AnimationPlayer")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.16232, 0)
+collision_mask = 16
+hit_from_inside = true
+script = ExtResource("6_g6k8r")
+
+[editable path="kid"]

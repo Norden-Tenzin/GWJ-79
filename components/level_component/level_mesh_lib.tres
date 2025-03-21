@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=58 format=4 uid="uid://uw36bqwkii8h"]
+[gd_resource type="MeshLibrary" load_steps=59 format=4 uid="uid://uw36bqwkii8h"]
 
 [ext_resource type="Texture2D" uid="uid://bu3mccypn0q5b" path="res://assets/level_editor/level_cube_floortilescratched2_diffuse.png" id="1_m1w8t"]
 
@@ -169,6 +169,9 @@ data = {
 [sub_resource type="ImageTexture" id="ImageTexture_fxfpu"]
 image = SubResource("Image_pnb17")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ny5ug"]
+size = Vector3(2, 2, 2)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwysv"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ikepb"]
@@ -264,7 +267,7 @@ data = {
 [sub_resource type="ImageTexture" id="ImageTexture_74wja"]
 image = SubResource("Image_siqlw")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_b7ne2"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfjbb"]
 size = Vector3(2, 2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjpgj"]
@@ -283,7 +286,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_nfjbb"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_n6pkr"]
 resource_name = "TEST_WALLS_Cube_007"
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
@@ -310,7 +313,7 @@ data = {
 "width": 64
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_yvuwk"]
+[sub_resource type="ImageTexture" id="ImageTexture_b7ne2"]
 image = SubResource("Image_gmgsq")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oocan"]
@@ -332,7 +335,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_b7ne2"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_44r5w"]
 resource_name = "TEST_WALLS_Cube_008"
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
@@ -359,10 +362,10 @@ data = {
 "width": 64
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_7qfqs"]
+[sub_resource type="ImageTexture" id="ImageTexture_kyeib"]
 image = SubResource("Image_dxues")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6puyj"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_upidu"]
 size = Vector3(2, 2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpnw6"]
@@ -381,7 +384,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_kyeib"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_31xdm"]
 resource_name = "TEST_WALLS_Cube_001"
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
@@ -408,10 +411,10 @@ data = {
 "width": 64
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_31xdm"]
+[sub_resource type="ImageTexture" id="ImageTexture_6puyj"]
 image = SubResource("Image_v3ye5")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_i6sxv"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_hd6we"]
 size = Vector3(2, 2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_py3km"]
@@ -430,7 +433,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_m6o3t"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_7tuvx"]
 resource_name = "TEST_WALLS_Cube_002"
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
@@ -457,10 +460,10 @@ data = {
 "width": 64
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_hd6we"]
+[sub_resource type="ImageTexture" id="ImageTexture_i6sxv"]
 image = SubResource("Image_pwuf8")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_rxy08"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_5466p"]
 size = Vector3(2, 2, 2)
 
 [resource]
@@ -492,7 +495,7 @@ item/3/name = "temporary_void"
 item/3/mesh = SubResource("BoxMesh_pwuf8")
 item/3/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/3/mesh_cast_shadow = 1
-item/3/shapes = []
+item/3/shapes = [SubResource("BoxShape3D_ny5ug"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/3/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/3/navigation_layers = 1
 item/3/preview = SubResource("ImageTexture_fxfpu")
@@ -508,39 +511,39 @@ item/5/name = "CROSS_JUNCTION"
 item/5/mesh = SubResource("ArrayMesh_x5jyb")
 item/5/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/5/mesh_cast_shadow = 1
-item/5/shapes = [SubResource("BoxShape3D_b7ne2"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/5/shapes = [SubResource("BoxShape3D_nfjbb"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/5/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/5/navigation_layers = 1
 item/5/preview = SubResource("ImageTexture_74wja")
 item/6/name = "ENCLOSED"
-item/6/mesh = SubResource("ArrayMesh_nfjbb")
+item/6/mesh = SubResource("ArrayMesh_n6pkr")
 item/6/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/6/mesh_cast_shadow = 1
 item/6/shapes = [SubResource("BoxShape3D_oocan"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/6/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/6/navigation_layers = 1
-item/6/preview = SubResource("ImageTexture_yvuwk")
+item/6/preview = SubResource("ImageTexture_b7ne2")
 item/7/name = "END"
-item/7/mesh = SubResource("ArrayMesh_b7ne2")
+item/7/mesh = SubResource("ArrayMesh_44r5w")
 item/7/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/7/mesh_cast_shadow = 1
-item/7/shapes = [SubResource("BoxShape3D_6puyj"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/7/shapes = [SubResource("BoxShape3D_upidu"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/7/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/7/navigation_layers = 1
-item/7/preview = SubResource("ImageTexture_7qfqs")
+item/7/preview = SubResource("ImageTexture_kyeib")
 item/8/name = "STRAIGHT"
-item/8/mesh = SubResource("ArrayMesh_kyeib")
+item/8/mesh = SubResource("ArrayMesh_31xdm")
 item/8/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/8/mesh_cast_shadow = 1
-item/8/shapes = [SubResource("BoxShape3D_i6sxv"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/8/shapes = [SubResource("BoxShape3D_hd6we"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/8/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/8/navigation_layers = 1
-item/8/preview = SubResource("ImageTexture_31xdm")
+item/8/preview = SubResource("ImageTexture_6puyj")
 item/9/name = "T_JUNCTION"
-item/9/mesh = SubResource("ArrayMesh_m6o3t")
+item/9/mesh = SubResource("ArrayMesh_7tuvx")
 item/9/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/9/mesh_cast_shadow = 1
-item/9/shapes = [SubResource("BoxShape3D_rxy08"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/9/shapes = [SubResource("BoxShape3D_5466p"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/9/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/9/navigation_layers = 1
-item/9/preview = SubResource("ImageTexture_hd6we")
+item/9/preview = SubResource("ImageTexture_i6sxv")
