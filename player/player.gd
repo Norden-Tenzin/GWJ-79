@@ -25,10 +25,15 @@ func _physics_process(delta: float) -> void:
 	direction = direction.normalized()
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
-	push_player()
+	wind_effect()
+	push_away_rigid_bodies()
 	move_and_slide()
 
-func push_player() -> void:
+func push_away_rigid_bodies() -> void:
+	for i in get_slide_collision_count():
+		print(i)
+
+func wind_effect() -> void:
 	var final_push_direction: Vector3
 	for id in effects:
 		var push_direction: Vector3 = effects[id]
