@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cd0n73yovhqmq"]
+[gd_scene load_steps=10 format=3 uid="uid://cd0n73yovhqmq"]
 
 [ext_resource type="PackedScene" uid="uid://dqm0vkwj3mjts" path="res://assets/level_editor/level_cube.tscn" id="1_k811x"]
 [ext_resource type="PackedScene" uid="uid://xvt4m43otoj7" path="res://assets/level_editor/walls/wall_corner.tscn" id="2_ny5ug"]
@@ -16,22 +16,12 @@ metallic_specular = 0.0
 material = SubResource("StandardMaterial3D_k811x")
 size = Vector3(2, 2, 2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ny5ug"]
-size = Vector3(2, 2, 2)
-
 [node name="Node3D" type="Node3D"]
 
 [node name="level_cube" parent="." instance=ExtResource("1_k811x")]
 
 [node name="temporary_void" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_76ieg")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="temporary_void"]
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="temporary_void/StaticBody3D"]
-shape = SubResource("BoxShape3D_ny5ug")
 
 [node name="wall_corner" parent="." instance=ExtResource("2_ny5ug")]
 
