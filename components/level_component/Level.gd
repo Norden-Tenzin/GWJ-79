@@ -1,19 +1,46 @@
 extends Node3D
-# Here we can check if all the pressure plates that are a child of this node are activated or not.
+# Here we can check if all the pressure plates 
+# that are a child of this node are activated or not.
+
+signal eat_candy(candy_type: GlobalEnums.CandyType)
 
 var candy_count: int:
 	set(v):
 		candy_count = v
 		if candy_count == 0:
-			print("level done")
+			candy_status = true
+			level_end_check()
 	get:
 		return candy_count
 
+var candy_status: bool = false
+var plate_status: Dictionary[int, bool] = {}
+
 func _ready() -> void:
+	if Global.audio_manager:
+		Global.audio_manager.play(GlobalEnums.MusicName.Small)
+	# Connects candy signals to a single function
 	for child in get_children():
 		if child.is_in_group("Candy"):
+			child.connect("candy_picked_up", _candy_picked_up)
 			candy_count += 1
+		if child.is_in_group("PressurePlate"):
+			child.connect("plate_state_changed", _plate_state_changed)
 
-func _on_child_exiting_tree(node: Node) -> void:
-	if node.is_in_group("Candy"):
-		candy_count -= 1
+# candy picked_up signals
+func _candy_picked_up(candy_type: GlobalEnums.CandyType) -> void:
+	candy_count -= 1
+	eat_candy.emit(candy_type)
+
+func _plate_state_changed(plate_id: int, plate_state: bool) -> void:
+	plate_status.set(plate_id, plate_state)
+
+# checks if all candies are picked up and all plates are true
+func level_end_check() -> void:
+	if candy_status and plate_status.values().all(
+		func(element: bool) -> bool: return element == true
+	): 
+		level_end()
+
+func level_end() -> void:
+	pass

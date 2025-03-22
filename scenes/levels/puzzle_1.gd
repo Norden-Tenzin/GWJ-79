@@ -18,7 +18,7 @@ func _candy_picked_up(candy_type: GlobalEnums.CandyType) -> void:
 	eat_candy.emit(candy_type)
 	if candy_count == 0:
 		level_end()
-
+jk
 # Game level_lost signals
 func _on_area_3d_level_lost() -> void:
 	Global.scene_manager.reset_3d_scene()

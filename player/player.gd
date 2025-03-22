@@ -20,12 +20,7 @@ var direction: Vector3
 
 func _ready() -> void:
 	Global.player = self
-	Global.candy_picked_up.connect(_on_candy_picked_up)
-	Global.level_lost.connect(_on_level_lost)
-
-func _on_level_lost() -> void:
-	# we should reload the level here idk
-	print("you lost")
+	owner.connect("eat_candy", _eat_candy)
 
 func _process(delta: float) -> void:
 	var root_pos: Vector3 = $AnimationTree.get_root_motion_position()
@@ -34,8 +29,7 @@ func _process(delta: float) -> void:
 	var root_rotation: Quaternion = $AnimationTree.get_root_motion_rotation()
 	set_quaternion(get_quaternion() * root_rotation)
 
-
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var input_dir: Vector2 = Input.get_vector("left", "right", "backward", "forward")
 	if Input.is_action_just_pressed("ready to push box") && current_animation != AnimationState.Pushing_pose && current_animation != AnimationState.Pushing && $AnimationTree.get("parameters/conditions/near box"):
 		var point: Node3D = get_closest_node_on_body($ShapeCast3D.box)
@@ -146,24 +140,21 @@ func wind_effect() -> void:
 		GlobalEnums.PlayerState.Big:
 			velocity += final_push_direction * wind_force
 
+func get_closest_node_on_body(body: RigidBody3D) -> Node3D:
+	var closest_node: Node3D = null
+	var closest_distance: float = INF
+	var player_pos: Vector3 = global_transform.origin
+	for child in body.get_children():
+		if child is Node3D:
+			var child_pos: Vector3 = child.global_transform.origin
+			var dist: float = player_pos.distance_to(child_pos)
+			if dist < closest_distance:
+				closest_distance = dist
+				closest_node = child
+	return closest_node
 
-func update_state() -> void:
-	match player_state:
-		GlobalEnums.PlayerState.Small:
-			debug_label.text = "Small"
-		GlobalEnums.PlayerState.Normal:
-			debug_label.text = "Normal"
-		GlobalEnums.PlayerState.Big:
-			debug_label.text = "Big"
-			
-func add_effect(fan_id: int, push_direction: Vector3) -> void:
-	effects.set(fan_id, push_direction)
-
-func remove_effect(fan_id: int) -> void:
-	effects.erase(fan_id)
-	
-# TODO: add grow and shrink values
-func _on_candy_picked_up(candy_type: GlobalEnums.CandyType) -> void:
+# on candy pickup
+func _eat_candy(candy_type: GlobalEnums.CandyType) -> void:
 	match player_state:
 		GlobalEnums.PlayerState.Small:
 			match candy_type:
@@ -181,17 +172,22 @@ func _on_candy_picked_up(candy_type: GlobalEnums.CandyType) -> void:
 					player_state = GlobalEnums.PlayerState.Normal
 	update_state()
 
-func get_closest_node_on_body(body: RigidBody3D) -> Node3D:
-	var closest_node: Node3D = null
-	var closest_distance: float = INF
-	var player_pos: Vector3 = global_transform.origin
+func update_state() -> void:
+	match player_state:
+		GlobalEnums.PlayerState.Small:
+			debug_label.text = "Small"
+		GlobalEnums.PlayerState.Normal:
+			debug_label.text = "Normal"
+		GlobalEnums.PlayerState.Big:
+			debug_label.text = "Big"
 
-	for child in body.get_children():
-		if child is Node3D:
-			var child_pos: Vector3 = child.global_transform.origin
-			var dist: float = player_pos.distance_to(child_pos)
-			if dist < closest_distance:
-				closest_distance = dist
-				closest_node = child
-				
-	return closest_node
+# wind effect funcs
+func add_effect(fan_id: int, push_direction: Vector3) -> void:
+	effects.set(fan_id, push_direction)
+
+func remove_effect(fan_id: int) -> void:
+	effects.erase(fan_id)
+
+func _on_level_lost() -> void:
+	# we should reload the level here idk
+	print("you lost")

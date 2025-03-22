@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://cp5xhjyxkfhr4"]
+
+[ext_resource type="Texture2D" uid="uid://c8ok68behikpq" path="res://assets/art/textures/Candies_Base_color.png" id="1_6f3gm"]
+[ext_resource type="Texture2D" uid="uid://bm0trxwf1bwe6" path="res://assets/art/textures/Candies_Metallic.png" id="2_kxhrr"]
+[ext_resource type="Texture2D" uid="uid://ct7ebswdpbh6r" path="res://assets/art/textures/Candies_Normal_DirectX.png" id="3_2awo6"]
+[ext_resource type="Texture2D" uid="uid://bdwe5gwdkwxn8" path="res://assets/art/textures/Candies_Roughness.png" id="4_fya3x"]
+
+[resource]
+albedo_texture = ExtResource("1_6f3gm")
+metallic = 1.0
+metallic_texture = ExtResource("2_kxhrr")
+roughness_texture = ExtResource("4_fya3x")
+normal_enabled = true
+normal_texture = ExtResource("3_2awo6")

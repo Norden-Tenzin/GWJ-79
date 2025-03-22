@@ -1,15 +1,14 @@
 [gd_resource type="Resource" script_class="CandyStats" load_steps=4 format=3 uid="uid://dkejvf8kijtf2"]
 
+[ext_resource type="Material" uid="uid://cp5xhjyxkfhr4" path="res://assets/art/materials/disc.tres" id="1_a8np1"]
 [ext_resource type="Script" uid="uid://xlnymbtxod8j" path="res://scenes/candy/candy_stats.gd" id="1_lp7tl"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lp7tl"]
-albedo_color = Color(0, 1, 0.166667, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_lp7tl"]
+[ext_resource type="ArrayMesh" uid="uid://c302nwhnt3kqd" path="res://assets/art/meshes/ring.tres" id="1_v0ysh"]
 
 [resource]
 script = ExtResource("1_lp7tl")
 type = 1
-mesh = SubResource("BoxMesh_lp7tl")
-material = SubResource("StandardMaterial3D_lp7tl")
+mesh = ExtResource("1_v0ysh")
+material = ExtResource("1_a8np1")
+growth_amount = 0.0
+jump_velocity_change = 0.0
 metadata/_custom_type_script = "uid://xlnymbtxod8j"

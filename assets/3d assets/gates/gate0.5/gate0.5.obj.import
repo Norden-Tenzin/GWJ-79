@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c2nkj27xhth2d"
+path="res://.godot/imported/gate0.5.obj-951732a2e3ff810a75651e0c8ea03df9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/gate0.5.obj-951732a2e3ff810a75651e0c8ea03df9.mesh"]
+
+source_file="res://assets/3d assets/gates/gate0.5/gate0.5.obj"
+dest_files=["res://.godot/imported/gate0.5.obj-951732a2e3ff810a75651e0c8ea03df9.mesh", "res://.godot/imported/gate0.5.obj-951732a2e3ff810a75651e0c8ea03df9.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfdwy7qjsgund"]
+
+[ext_resource type="Script" uid="uid://crptc1ysksq41" path="res://components/level_component/Level.gd" id="1_honaa"]
+[ext_resource type="Script" uid="uid://cy8grkel5jdvc" path="res://components/level_component/area_3d.gd" id="2_4xdkh"]
+[ext_resource type="MeshLibrary" uid="uid://uw36bqwkii8h" path="res://components/level_component/level_mesh_lib.tres" id="3_dy6pv"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v0mcw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qsgrh"]
+sky_top_color = Color(0.739583, 0.616797, 0.66889, 1)
+sky_horizon_color = Color(0.630198, 0.789257, 0.815553, 1)
+sky_curve = 2.95475
+ground_bottom_color = Color(0.694118, 0.772549, 0.8, 1)
+ground_horizon_color = Color(0.631373, 0.788235, 0.815686, 1)
+ground_curve = 0.468507
+
+[sub_resource type="Sky" id="Sky_ylp8c"]
+sky_material = SubResource("ProceduralSkyMaterial_qsgrh")
+
+[sub_resource type="Environment" id="Environment_ylp8c"]
+background_mode = 2
+sky = SubResource("Sky_ylp8c")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_honaa")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("2_4xdkh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("WorldBoundaryShape3D_v0mcw")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("3_dy6pv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.988325, 0.926777, 0.723846, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ylp8c")
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

@@ -9,5 +9,11 @@ var master_volume: float = 1.0
 var music_volume: float = 1.0
 var sfx_volume: float = 1.0
 
-signal candy_picked_up(type: GlobalEnums.CandyType)
-signal level_lost
+# TODO: 
+# - player candy relation - DONE
+# - add handleing for pressure plate - DONE
+# - witch billboard, kid billboard
+# - dialog intro
+# - candy transition
+# - shaders
+# - connect pin wheel to fan
