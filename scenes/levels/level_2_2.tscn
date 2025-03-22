@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="1_7wxml"]
 [ext_resource type="Script" uid="uid://cy8grkel5jdvc" path="res://components/level_component/area_3d.gd" id="1_jnr31"]
-[ext_resource type="MeshLibrary" uid="uid://co4ggiqp67tqv" path="res://components/level_component/level_mesh_lib.tres" id="3_obyhc"]
+[ext_resource type="MeshLibrary" uid="uid://uw36bqwkii8h" path="res://components/level_component/level_mesh_lib.tres" id="3_obyhc"]
 [ext_resource type="PackedScene" uid="uid://2nm7fdrdekse" path="res://scenes/portal/portal.tscn" id="4_vof2d"]
 [ext_resource type="PackedScene" uid="uid://5g586dy1b12s" path="res://scenes/candy/candy.tscn" id="5_4adhj"]
 [ext_resource type="Resource" uid="uid://dkejvf8kijtf2" path="res://scenes/candy/shrink_candy.tres" id="6_gvbt4"]
@@ -38,8 +38,9 @@ shape = SubResource("WorldBoundaryShape3D_v0mcw")
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("3_obyhc")
 data = {
-"cells": PackedInt32Array(65533, 65535, 0, 65534, 65535, 0, 65535, 65535, 0, 65535, 0, 0, 65535, 65534, 0, 65535, 65533, 0, 0, 65533, 0, 1, 65533, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 65535, 0, 1, 65535, 0, 2, 65535, 0, 2, 0, 0, 2, 1, 0, 3, 1, 0, 3, 0, 0, 3, 65535, 0, 2, 65533, 0, 3, 65533, 0, 3, 65534, 0, 4, 65535, 0, 5, 65535, 0, 5, 0, 0, 5, 65534, 0, 6, 65534, 0, 6, 65535, 0, 6, 0, 0, 7, 0, 0, 7, 65535, 0, 7, 65534, 0)
+"cells": PackedInt32Array(65533, 65535, 0, 65534, 65535, 0, 65535, 65535, 0, 65535, 0, 0, 65535, 65534, 0, 65535, 65533, 0, 0, 65533, 0, 1, 65533, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 0, 65535, 0, 1, 65535, 0, 2, 65535, 0, 2, 1, 0, 3, 1, 0, 3, 0, 0, 3, 65535, 0, 2, 65533, 0, 3, 65533, 0, 3, 65534, 0, 4, 65535, 0, 5, 65535, 0, 5, 0, 0, 5, 65534, 0, 6, 65534, 0, 6, 65535, 0, 6, 0, 0, 7, 0, 0, 7, 65535, 0, 7, 65534, 0, 0, 65534, 1048576, 2, 65534, 1048576, 65544, 65534, 1048584, 65544, 65535, 1048584, 65544, 0, 1048584, 65544, 1, 1048583, 131068, 65535, 1048584, 131069, 65534, 8, 131070, 65534, 4, 131071, 65532, 8, 65536, 65532, 8, 65537, 65532, 8, 65538, 65532, 8, 65539, 65532, 8, 65541, 65533, 8, 65542, 65533, 8, 65543, 65533, 8, 131068, 65534, 655364, 131070, 65532, 655364, 65540, 65532, 1048580, 65540, 65534, 1048583, 65540, 65533, 655369, 65544, 65533, 1048580, 131070, 65533, 1048584, 131068, 0, 1048583)
 }
+metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -53,7 +54,7 @@ environment = SubResource("Environment_ylp8c")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
 mesh_library = ExtResource("3_obyhc")
 data = {
-"cells": PackedInt32Array(0, 65533, 0, 1, 65533, 0, 4, 65533, 0, 5, 65533, 0)
+"cells": PackedInt32Array(0, 0, 1048576, 1, 0, 1048576, 4, 0, 1048576, 5, 0, 1048576)
 }
 
 [node name="GridMap3" type="GridMap" parent="."]
