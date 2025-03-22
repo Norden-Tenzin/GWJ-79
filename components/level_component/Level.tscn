@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://hxhu0yda644h"]
 
-[ext_resource type="Script" uid="uid://cdt2l10t21kt3" path="res://components/level_component/level.gd" id="1_qsgrh"]
+[ext_resource type="Script" uid="uid://crptc1ysksq41" path="res://components/level_component/Level.gd" id="1_qsgrh"]
 [ext_resource type="Script" uid="uid://cy8grkel5jdvc" path="res://components/level_component/area_3d.gd" id="2_qsgrh"]
 [ext_resource type="MeshLibrary" uid="uid://uw36bqwkii8h" path="res://components/level_component/level_mesh_lib.tres" id="2_v0mcw"]
 
@@ -42,4 +42,5 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ylp8c")
 
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

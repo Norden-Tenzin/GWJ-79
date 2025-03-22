@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://2p34a5pdrnq4"]
+[gd_scene load_steps=32 format=3 uid="uid://2p34a5pdrnq4"]
 
 [ext_resource type="Script" uid="uid://brop88kk5pknk" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://mxjk2oruff3x" path="res://player/camera_3d.gd" id="2_rkbax"]
@@ -7,13 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bp0e856x5ruxg" path="res://assets/kidcandy/kid.glb" id="5_qjkh3"]
 [ext_resource type="Script" uid="uid://d2hygi0o3an0x" path="res://player/ray_cast_3d.gd" id="6_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://dvaemgk1f387" path="res://player/debug_label.tscn" id="7_boad6"]
+[ext_resource type="Script" uid="uid://b81hj1c7wkutx" path="res://player/shape_cast_3d.gd" id="8_rgyib"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_yw30f"]
-radius = 0.7
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_yw30f"]
-top_radius = 0.7
-bottom_radius = 0.7
+[sub_resource type="BoxShape3D" id="BoxShape3D_boad6"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qjkh3"]
 viewport_path = NodePath("StencilViewport")
@@ -30,6 +26,9 @@ animation = &"Idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_boad6"]
 animation = &"Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8t03j"]
+animation = &"Pushing pose"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rgyib"]
 animation = &"Pushing"
@@ -53,12 +52,6 @@ xfade_time = 0.4
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_boad6"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rgyib"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hg6s5"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ebec5"]
 xfade_time = 0.2
 
@@ -70,6 +63,22 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kb6p2"]
 xfade_time = 0.2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wodsf"]
+xfade_time = 0.2
+advance_condition = &"near box"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tqiix"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e7oew"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c35mf"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_boad6"]
+xfade_time = 0.2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qjkh3"]
 states/End/position = Vector2(899, 100)
 states/Idle/node = SubResource("AnimationNodeAnimation_g6k8r")
@@ -77,31 +86,33 @@ states/Idle/position = Vector2(252, 155)
 states/Jump/node = SubResource("AnimationNodeAnimation_boad6")
 states/Jump/position = Vector2(608, 169)
 states/Pushing/node = SubResource("AnimationNodeAnimation_rgyib")
-states/Pushing/position = Vector2(526, 283)
+states/Pushing/position = Vector2(758, 243)
+"states/Pushing pose/node" = SubResource("AnimationNodeAnimation_8t03j")
+"states/Pushing pose/position" = Vector2(506, 255)
 "states/Running Jump/node" = SubResource("AnimationNodeAnimation_hg6s5")
 "states/Running Jump/position" = Vector2(623, 49)
 "states/Slow Run/node" = SubResource("AnimationNodeAnimation_qjkh3")
 "states/Slow Run/position" = Vector2(399, 95)
 states/Start/position = Vector2(93, 155)
-transitions = ["Idle", "Slow Run", SubResource("AnimationNodeStateMachineTransition_8t03j"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_2ieo8"), "Slow Run", "Running Jump", SubResource("AnimationNodeStateMachineTransition_qjkh3"), "Running Jump", "Slow Run", SubResource("AnimationNodeStateMachineTransition_g6k8r"), "Slow Run", "Pushing", SubResource("AnimationNodeStateMachineTransition_boad6"), "Pushing", "Idle", SubResource("AnimationNodeStateMachineTransition_rgyib"), "Pushing", "Slow Run", SubResource("AnimationNodeStateMachineTransition_hg6s5"), "Slow Run", "Jump", SubResource("AnimationNodeStateMachineTransition_ebec5"), "Jump", "Slow Run", SubResource("AnimationNodeStateMachineTransition_yllr7"), "Slow Run", "Idle", SubResource("AnimationNodeStateMachineTransition_kb6p2")]
+transitions = ["Idle", "Slow Run", SubResource("AnimationNodeStateMachineTransition_8t03j"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_2ieo8"), "Slow Run", "Running Jump", SubResource("AnimationNodeStateMachineTransition_qjkh3"), "Running Jump", "Slow Run", SubResource("AnimationNodeStateMachineTransition_g6k8r"), "Slow Run", "Jump", SubResource("AnimationNodeStateMachineTransition_ebec5"), "Jump", "Slow Run", SubResource("AnimationNodeStateMachineTransition_yllr7"), "Slow Run", "Idle", SubResource("AnimationNodeStateMachineTransition_kb6p2"), "Idle", "Pushing pose", SubResource("AnimationNodeStateMachineTransition_wodsf"), "Slow Run", "Pushing pose", SubResource("AnimationNodeStateMachineTransition_tqiix"), "Pushing pose", "Pushing", SubResource("AnimationNodeStateMachineTransition_e7oew"), "Pushing", "Pushing pose", SubResource("AnimationNodeStateMachineTransition_c35mf"), "Pushing pose", "Idle", SubResource("AnimationNodeStateMachineTransition_boad6")]
+graph_offset = Vector2(-93, 60)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_boad6"]
+radius = 1.5
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 3
 script = ExtResource("1_oul6g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CylinderShape3D_yw30f")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
-layers = 3
-mesh = SubResource("CylinderMesh_yw30f")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_boad6")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 15, 14.302, 15)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 8, 15)
 projection = 1
 current = true
-size = 12.0
+size = 8.0
 script = ExtResource("2_rkbax")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D"]
@@ -113,10 +124,10 @@ use_hdr_2d = true
 script = ExtResource("3_yw30f")
 
 [node name="Camera3D" type="Camera3D" parent="StencilViewport"]
-transform = Transform3D(0.707107, -0.353553, 0.612373, 0, 0.866026, 0.5, -0.707107, -0.353553, 0.612373, 15, 14.302, 15)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 8, 15)
 cull_mask = 1047554
 projection = 1
-size = 12.0
+size = 8.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_g1dw6")
@@ -132,32 +143,14 @@ transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.7071
 [node name="O2" type="Node3D" parent="."]
 transform = Transform3D(0, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 0, 14.302, 0)
 
+[node name="O3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 8, 15)
+
 [node name="kid" parent="." instance=ExtResource("5_qjkh3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.989241, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.946411, 0)
 
 [node name="Skeleton3D" parent="kid/Armature" index="0"]
 bones/0/position = Vector3(0.0589747, -0.0411787, -0.00943589)
-bones/1/rotation = Quaternion(-0.0364149, -0.916083, 0.0194621, 0.398858)
-bones/2/rotation = Quaternion(-0.0103386, 0.0396328, -0.0318733, 0.998652)
-bones/3/rotation = Quaternion(-0.0163903, 0.0812984, -0.0949783, 0.992019)
-bones/4/rotation = Quaternion(-0.0163903, 0.0812983, -0.0949782, 0.992019)
-bones/5/rotation = Quaternion(0.00164468, -0.0106711, 0.00780171, 0.999911)
-bones/6/rotation = Quaternion(-0.00371046, 0.178025, 0.0687991, 0.981611)
-bones/7/rotation = Quaternion(-1.35953e-09, 0.707107, 2.67663e-09, 0.707107)
-bones/8/rotation = Quaternion(0.0105013, -0.400558, 0.915982, 0.0204701)
-bones/9/rotation = Quaternion(-0.0713874, 0.965577, 0.238409, 0.0756659)
-bones/10/rotation = Quaternion(0.00402553, 0.0590542, -0.414573, 0.908089)
-bones/12/rotation = Quaternion(0.921753, 0.0049558, -0.0549068, 0.383839)
-bones/13/rotation = Quaternion(-0.149467, 0.959961, 0.2139, -0.101889)
-bones/14/rotation = Quaternion(-0.0461813, 0.00590658, 0.364956, 0.92986)
-bones/16/rotation = Quaternion(0.0811758, -0.166896, 0.950393, -0.249621)
-bones/17/rotation = Quaternion(0.126692, 0.122134, -0.344446, 0.922166)
-bones/18/rotation = Quaternion(0.35856, -0.649786, 0.289911, 0.604288)
-bones/19/rotation = Quaternion(0.381769, 0.0286974, -0.0278571, 0.923392)
-bones/21/rotation = Quaternion(-0.123278, 0.191582, 0.968248, 0.102927)
-bones/22/rotation = Quaternion(-0.0628887, 0.0574978, -0.287158, 0.954086)
-bones/23/rotation = Quaternion(0.338013, -0.477456, 0.563686, 0.583131)
-bones/24/rotation = Quaternion(0.379536, -0.00636746, 0.00271963, 0.925151)
 
 [node name="roughness" parent="kid/Armature/Skeleton3D" index="0"]
 layers = 3
@@ -168,14 +161,24 @@ root_motion_track = NodePath("Armature/Skeleton3D:mixamorig_Root")
 root_motion_local = false
 tree_root = SubResource("AnimationNodeStateMachine_qjkh3")
 anim_player = NodePath("../kid/AnimationPlayer")
+"parameters/conditions/near box" = false
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.16232, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.92852, 0)
 collision_mask = 16
 hit_from_inside = true
 script = ExtResource("6_g6k8r")
 
 [node name="DebugLabel" parent="." instance=ExtResource("7_boad6")]
 unique_name_in_owner = true
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_boad6")
+script = ExtResource("8_rgyib")
+
+[node name="RootMotionView" type="RootMotionView" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+animation_path = NodePath("../AnimationTree")
 
 [editable path="kid"]

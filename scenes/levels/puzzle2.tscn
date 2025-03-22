@@ -49,11 +49,11 @@ data = {
 [node name="level_door" parent="Level" instance=ExtResource("3_i6t3g")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, -1)
 
-[node name="Candy" parent="." instance=ExtResource("4_4absi")]
+[node name="Candy" parent="Level" instance=ExtResource("4_4absi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98598, 2, 6.24054)
 candy_stat = SubResource("Resource_kx6ci")
 
-[node name="Candy2" parent="." instance=ExtResource("4_4absi")]
+[node name="Candy2" parent="Level" instance=ExtResource("4_4absi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99438, 2, 3.46934)
 candy_stat = SubResource("Resource_x7w6b")
 

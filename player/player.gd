@@ -2,17 +2,21 @@ extends CharacterBody3D
 class_name Player
 
 @onready var debug_label: Label3D = %DebugLabel
-@export var speed: float = 10
 @export var jump_velocity: int = 4
 @export var player_state: GlobalEnums.PlayerState = GlobalEnums.PlayerState.Normal
 
 # TODO: pick wind_force
-@export var wind_force: float = 5.0
+@export var wind_force: float = 5
+
+enum AnimationState
+{Pushing, Pushing_pose, Slow_Run, Idle}
 
 var last_move_direction: Vector3 = Vector3.FORWARD
 var effects: Dictionary[int, Vector3] = {}
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var root_velocity: Vector3
+var current_animation: AnimationState = AnimationState.Idle
+var direction: Vector3
 
 func _ready() -> void:
 	Global.player = self
@@ -30,16 +34,45 @@ func _process(delta: float) -> void:
 	var root_rotation: Quaternion = $AnimationTree.get_root_motion_rotation()
 	set_quaternion(get_quaternion() * root_rotation)
 
+
 func _physics_process(delta: float) -> void:
 	var input_dir: Vector2 = Input.get_vector("left", "right", "backward", "forward")
-	var direction: Vector3 = ($Camera3D.direction.x * input_dir.x) + ($Camera3D.direction.z * input_dir.y)
-	direction.y = 0.0
-	direction = direction.normalized()
-	if input_dir.length() > 0:
-		$AnimationTree.get("parameters/playback").travel("Slow Run")
-		last_move_direction = direction
-	else:
+	if Input.is_action_just_pressed("ready to push box") && current_animation != AnimationState.Pushing_pose && current_animation != AnimationState.Pushing && $AnimationTree.get("parameters/conditions/near box"):
+		var point: Node3D = get_closest_node_on_body($ShapeCast3D.box)
+		global_position.x = point.global_position.x
+		global_position.z = point.global_position.z
+		var look_at_dir: Vector3
+		look_at_dir.x = point.transform.basis.z.x
+		look_at_dir.z = point.transform.basis.z.z
+		look_at_dir = look_at_dir.normalized()
+		last_move_direction = look_at_dir
+		direction = look_at_dir
+		$AnimationTree.get("parameters/playback").travel("Pushing pose")
+		current_animation = AnimationState.Pushing_pose
+	elif Input.is_action_just_pressed("ready to push box") && (current_animation == AnimationState.Pushing || current_animation == AnimationState.Pushing_pose):
 		$AnimationTree.get("parameters/playback").travel("Idle")
+		current_animation = AnimationState.Idle
+	elif current_animation != AnimationState.Pushing_pose && current_animation != AnimationState.Pushing:
+		direction = ($Camera3D.direction.x * input_dir.x) + ($Camera3D.direction.z * input_dir.y)
+		direction.y = 0.0
+		direction = direction.normalized()
+		
+		
+	if input_dir.length() > 0:
+		if current_animation == AnimationState.Pushing_pose:
+			$AnimationTree.get("parameters/playback").travel("Pushing")
+			current_animation = AnimationState.Pushing
+		elif current_animation == AnimationState.Idle || current_animation == AnimationState.Slow_Run:
+			$AnimationTree.get("parameters/playback").travel("Slow Run")
+			current_animation = AnimationState.Slow_Run
+			last_move_direction = direction
+	else:
+		if current_animation == AnimationState.Pushing:
+			$AnimationTree.get("parameters/playback").travel("Pushing pose")
+			current_animation = AnimationState.Pushing_pose
+		elif current_animation == AnimationState.Slow_Run:
+			$AnimationTree.get("parameters/playback").travel("Idle")
+			current_animation = AnimationState.Idle
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		$AnimationTree.get("parameters/playback").travel("Running Jump")
@@ -62,6 +95,8 @@ func _physics_process(delta: float) -> void:
 	
 # Pushing Boxes functionality
 func push_away_rigid_bodies() -> void:
+	if current_animation != AnimationState.Pushing && current_animation != AnimationState.Pushing_pose:
+		return
 	for i in get_slide_collision_count():
 		var collision_obj: KinematicCollision3D = get_slide_collision(i)
 		if collision_obj.get_collider() is RigidBody3D:
@@ -133,3 +168,18 @@ func _on_candy_picked_up(candy_type: GlobalEnums.CandyType) -> void:
 				GlobalEnums.CandyType.Shrink:
 					player_state = GlobalEnums.PlayerState.Normal
 	update_state()
+
+func get_closest_node_on_body(body: RigidBody3D) -> Node3D:
+	var closest_node: Node3D = null
+	var closest_distance: float = INF
+	var player_pos: Vector3 = global_transform.origin
+
+	for child in body.get_children():
+		if child is Node3D:
+			var child_pos: Vector3 = child.global_transform.origin
+			var dist: float = player_pos.distance_to(child_pos)
+			if dist < closest_distance:
+				closest_distance = dist
+				closest_node = child
+				
+	return closest_node
