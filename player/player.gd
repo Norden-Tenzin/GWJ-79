@@ -91,8 +91,7 @@ func _physics_process(delta: float) -> void:
 	wind_effect()
 	push_away_rigid_bodies()
 	move_and_slide()
-	
-	
+
 # Pushing Boxes functionality
 func push_away_rigid_bodies() -> void:
 	if current_animation != AnimationState.Pushing && current_animation != AnimationState.Pushing_pose:
@@ -101,10 +100,19 @@ func push_away_rigid_bodies() -> void:
 		var collision_obj: KinematicCollision3D = get_slide_collision(i)
 		if collision_obj.get_collider() is RigidBody3D:
 			var push_direction: Vector3 = -collision_obj.get_normal()
+			
+			push_direction = Vector3.ZERO
+			var collision_normal: Vector3 = collision_obj.get_normal()
+			# Find the axis with the largest absolute component of the normal
+			if abs(collision_normal.x) > abs(collision_normal.z):
+				push_direction.x = -sign(collision_normal.x)
+			else:
+				push_direction.z = -sign(collision_normal.z)
 			var velocity_diff_in_push_dir: float = self.velocity.dot(push_direction) - collision_obj.get_collider().linear_velocity.dot(push_direction)
+			
 			# Only count velocity towards push dir, away from character
 			velocity_diff_in_push_dir = max(0., velocity_diff_in_push_dir)
-			# Objects with more mass than us should be harder to push. But doesn't really make sense to push faster than we are going
+			# Objects with more mass than us should be harder to push
 			const MY_APPROX_MASS_KG: float = 80.0
 			var mass_ratio: float = min(1., MY_APPROX_MASS_KG / collision_obj.get_collider().mass)
 			# Optional add: Don't push object at all if it's 4x heavier or more
@@ -114,9 +122,13 @@ func push_away_rigid_bodies() -> void:
 			push_direction.y = 0
 			# 5.0 is a magic number, adjust to your needs
 			var push_force: float = mass_ratio * 5.0
-			collision_obj.get_collider().apply_impulse(
-				push_direction* velocity_diff_in_push_dir * push_force, 
-				collision_obj.get_position() - collision_obj.get_collider().global_position
+			
+			# Lock rotation before applying impulse
+			collision_obj.get_collider().lock_rotation = true
+			
+			# Apply central impulse instead of offset impulse
+			collision_obj.get_collider().apply_central_impulse(
+				push_direction * velocity_diff_in_push_dir * push_force
 			)
 
 # Wind Effect functionality

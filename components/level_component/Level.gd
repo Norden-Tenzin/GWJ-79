@@ -1,5 +1,4 @@
 extends Node3D
-
 # Here we can check if all the pressure plates that are a child of this node are activated or not.
 
 var candy_count: int:

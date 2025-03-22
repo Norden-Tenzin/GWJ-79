@@ -7,7 +7,8 @@ extends Node3D
 func _ready() -> void: 
 	if candy_stat:
 		mesh_instance.mesh = candy_stat.mesh
-		mesh_instance.material_overlay = candy_stat.material
+		mesh_instance.material_override = candy_stat.material
+		mesh_instance.material_overlay = candy_stat.material_overlay
 
 
 func _on_area_component_node_entered(body: Node3D) -> void:

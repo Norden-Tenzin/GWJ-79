@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqm0vkwj3mjts"]
+[gd_scene load_steps=6 format=3 uid="uid://dqm0vkwj3mjts"]
 
 [ext_resource type="PackedScene" uid="uid://bngpxrgk40chq" path="res://assets/level_editor/level_cube.glb" id="1_8lbmr"]
+[ext_resource type="Material" uid="uid://bgav0ibfa0da2" path="res://assets/art/materials/floor.tres" id="2_dgfsd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dgfsd"]
 size = Vector3(2, 2, 2)
@@ -13,16 +14,25 @@ data = PackedVector3Array(-1, -1, -0.5, -1, 1, -1, -1, 1, -0.5, -1, -1, -0.5, -1
 
 [node name="level_cube" instance=ExtResource("1_8lbmr")]
 
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_dgfsd")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_dgfsd")
+
+[node name="Cube_001" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_dgfsd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_001" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_001/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_8lbmr")
+
+[node name="Cube_002" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_dgfsd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_002" index="0"]
 
