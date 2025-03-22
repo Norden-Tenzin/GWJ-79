@@ -29,8 +29,15 @@ gdscript/warnings/untyped_declaration=2
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"kid": "res://dialog/kid.dch",
+"witch": "res://dialog/witch.dch"
+}
+directories/dtl_directory={
+"intro": "res://dialog/intro.dtl"
+}
+layout/style_list=[]
+layout/default_style="Default"
 
 [display]
 

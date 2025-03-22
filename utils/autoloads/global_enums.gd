@@ -22,8 +22,15 @@ enum SceneName {
 	MainMenu,
 	SettingsMenu,
 	PauseMenu,
-	Level1,
-	Level2,
+	Level1_1,
+	Level1_2,
+	Level1_3,
+	Level2_1,
+	Level2_2,
+	Level2_3,
+	Level3_1,
+	Level3_2,
+	Level3_3,
 }
 
 enum PlateType {

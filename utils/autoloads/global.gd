@@ -12,8 +12,8 @@ var sfx_volume: float = 1.0
 # TODO: 
 # - player candy relation - DONE
 # - add handleing for pressure plate - DONE
-# - witch billboard, kid billboard
-# - dialog intro
+# - connect pin wheel to fan - DONE
+# - witch billboard, kid billboard - DONE
+# - dialog intro - DONE
 # - candy transition
 # - shaders
-# - connect pin wheel to fan

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2bg7vbcenxhw"]
+[gd_scene load_steps=14 format=3 uid="uid://c2bg7vbcenxhw"]
 
 [ext_resource type="Script" uid="uid://crptc1ysksq41" path="res://components/level_component/Level.gd" id="1_honaa"]
 [ext_resource type="Script" uid="uid://cy8grkel5jdvc" path="res://components/level_component/area_3d.gd" id="2_4xdkh"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://5g586dy1b12s" path="res://scenes/candy/candy.tscn" id="5_68ib6"]
 [ext_resource type="Resource" uid="uid://bhe00bfbkd2mn" path="res://scenes/candy/grow_candy.tres" id="6_76cw8"]
 [ext_resource type="Resource" uid="uid://dkejvf8kijtf2" path="res://scenes/candy/shrink_candy.tres" id="7_m00rq"]
+[ext_resource type="PackedScene" uid="uid://bmxpel8ucgwno" path="res://scenes/sprites/witch.tscn" id="8_brv20"]
+[ext_resource type="PackedScene" uid="uid://2nm7fdrdekse" path="res://scenes/portal/portal.tscn" id="9_7d7pp"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v0mcw"]
 
@@ -65,8 +67,12 @@ candy_stat = ExtResource("7_m00rq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97134, 2.00639, 0.970146)
 candy_stat = ExtResource("6_76cw8")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.87525, 2, -1.69608)
+[node name="Witch" parent="." instance=ExtResource("8_brv20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.16448, 2, -1.05217)
+
+[node name="Portal" parent="." instance=ExtResource("9_7d7pp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.10715, 2, 0.30416)
+next_lvl = 4
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="eat_candy" from="." to="Player" method="_on_level_1_eat_candy"]
