@@ -12,8 +12,18 @@ var curr_3d_scene_name: GlobalEnums.SceneName
 var curr_gui_scene_name: GlobalEnums.SceneName
 
 # Levels
-const level_1: String = "res://scenes/levels/puzzle1.tscn"
-const level_2: String = "res://scenes/levels/puzzle2.tscn"
+# Level 1
+const level_1_1: String = "res://scenes/levels/level_1_1.tscn"
+const level_1_2: String = "res://scenes/levels/level_1_2.tscn"
+const level_1_3: String = "res://scenes/levels/level_1_3.tscn"
+# Level 2
+const level_2_1: String = "res://scenes/levels/level_2_1.tscn"
+const level_2_2: String = "res://scenes/levels/level_2_2.tscn"
+const level_2_3: String = "res://scenes/levels/level_2_3.tscn"
+# TODO: PLACE HOLDER Level 3
+const level_3_1: String = "res://scenes/levels/level_2_1.tscn"
+const level_3_2: String = "res://scenes/levels/level_2_2.tscn"
+const level_3_3: String = "res://scenes/levels/level_2_3.tscn"
 # UI
 const main_menu: String = "res://scenes/ui/main_menu.tscn"
 const pause_menu: String = "res://scenes/ui/pause_menu.tscn"
@@ -50,10 +60,24 @@ func get_scene(scene_name: GlobalEnums.SceneName) -> Node:
 			return load(pause_menu).instantiate()
 		GlobalEnums.SceneName.SettingsMenu:
 			return load(settings_menu).instantiate()
-		GlobalEnums.SceneName.Level1:
-			return load(level_1).instantiate()
-		GlobalEnums.SceneName.Level2:
-			return load(level_2).instantiate()
+		GlobalEnums.SceneName.Level1_1:
+			return load(level_1_1).instantiate()
+		GlobalEnums.SceneName.Level1_2:
+			return load(level_1_2).instantiate()
+		GlobalEnums.SceneName.Level1_3:
+			return load(level_1_3).instantiate()
+		GlobalEnums.SceneName.Level2_1:
+			return load(level_2_1).instantiate()
+		GlobalEnums.SceneName.Level2_2:
+			return load(level_2_2).instantiate()
+		GlobalEnums.SceneName.Level2_3:
+			return load(level_2_3).instantiate()
+		GlobalEnums.SceneName.Level3_1:
+			return load(level_3_1).instantiate()
+		GlobalEnums.SceneName.Level3_2:
+			return load(level_3_2).instantiate()
+		GlobalEnums.SceneName.Level2_3:
+			return load(level_3_3).instantiate()
 		_ :
 			return load(main_menu).instantiate()
 
