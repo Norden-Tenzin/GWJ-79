@@ -50,4 +50,6 @@ transform = Transform3D(0.734784, 0, 0.678301, 0, 1, 0, -0.678301, 0, 0.734784, 
 [node name="Clouds2" parent="." instance=ExtResource("4_ylp8c")]
 transform = Transform3D(0.734784, 0, 0.678301, 0, 1, 0, -0.678301, 0, 0.734784, -46.0473, 14.1864, 16.7052)
 
+[node name="Decorations" type="Node3D" parent="."]
+
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
