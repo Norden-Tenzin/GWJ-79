@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmxpel8ucgwno"]
+
+[ext_resource type="Texture2D" uid="uid://cg8siuc4mp13m" path="res://assets/art/sprites/witch_far.png" id="1_jsr04"]
+
+[node name="Witch" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.25, 0)
+billboard = 1
+texture = ExtResource("1_jsr04")
