@@ -1,0 +1,7 @@
+[gd_scene load_steps=0 format=3 uid="uid://dvaemgk1f387"]
+
+[node name="DebugLabel" type="Label3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+billboard = 1
+text = "demo
+"

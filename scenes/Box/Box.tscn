@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc62fbgadbiar"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oua6t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oua6t"]
+size = Vector3(1.9, 1.9, 1.9)
+
+[node name="Box" type="RigidBody3D"]
+mass = 150.0
+lock_rotation = true
+
+[node name="Weight" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Weight"]
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 0, 0)
+mesh = SubResource("BoxMesh_oua6t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_oua6t")

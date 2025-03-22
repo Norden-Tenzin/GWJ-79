@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://hxhu0yda644h"]
 
-[ext_resource type="Script" uid="uid://crptc1ysksq41" path="res://components/level_component/Level.gd" id="1_52new"]
+[ext_resource type="Script" uid="uid://cdt2l10t21kt3" path="res://components/level_component/level.gd" id="1_qsgrh"]
 [ext_resource type="Script" uid="uid://cy8grkel5jdvc" path="res://components/level_component/area_3d.gd" id="2_qsgrh"]
 [ext_resource type="MeshLibrary" uid="uid://uw36bqwkii8h" path="res://components/level_component/level_mesh_lib.tres" id="2_v0mcw"]
 
@@ -23,7 +23,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Level" type="Node3D"]
-script = ExtResource("1_52new")
+script = ExtResource("1_qsgrh")
 
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("2_qsgrh")
