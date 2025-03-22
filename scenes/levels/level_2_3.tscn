@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://fae0b3m5p6xm"]
+
+[ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="1_vsq62"]
+[ext_resource type="PackedScene" uid="uid://hxhu0yda644h" path="res://components/level_component/Level.tscn" id="2_ek5g6"]
+[ext_resource type="Shader" uid="uid://ckx67t3t7x3ge" path="res://player/outline.gdshader" id="2_vsq62"]
+[ext_resource type="MeshLibrary" uid="uid://co4ggiqp67tqv" path="res://components/level_component/level_mesh_lib.tres" id="3_kr3qp"]
+[ext_resource type="PackedScene" uid="uid://2nm7fdrdekse" path="res://scenes/portal/portal.tscn" id="4_8hiuf"]
+[ext_resource type="PackedScene" uid="uid://5g586dy1b12s" path="res://scenes/candy/candy.tscn" id="5_ymta0"]
+[ext_resource type="Resource" uid="uid://dkejvf8kijtf2" path="res://scenes/candy/shrink_candy.tres" id="6_mhnwe"]
+[ext_resource type="PackedScene" uid="uid://dc62fbgadbiar" path="res://scenes/Box/Box.tscn" id="7_bgvqe"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ek5g6"]
+viewport_path = NodePath("StencilViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kr3qp"]
+resource_local_to_scene = true
+shader = ExtResource("2_vsq62")
+shader_parameter/lineWeight = 1.0
+shader_parameter/outlineColor = Color(3, 0.8, 0, 0.8)
+shader_parameter/stencilMask = SubResource("ViewportTexture_ek5g6")
+
+[node name="Level1-1" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_vsq62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 3, -8)
+
+[node name="Camera3D" parent="Player/StencilViewport" index="0"]
+transform = Transform3D(0.707107, -0.353553, 0.612373, 0, 0.866026, 0.5, -0.707107, -0.353553, 0.612373, 13.5, 17.302, 7)
+
+[node name="ColorRect" parent="Player" index="4"]
+material = SubResource("ShaderMaterial_kr3qp")
+
+[node name="Level" parent="." instance=ExtResource("2_ek5g6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0, 1.2)
+
+[node name="GridMap" parent="Level" index="1"]
+data = {
+"cells": PackedInt32Array(3, 0, 0, 3, 65535, 0, 3, 65534, 0, 4, 65534, 0, 4, 65535, 0, 4, 0, 0, 5, 65534, 0, 5, 65535, 0, 5, 0, 0, 2, 65535, 0, 1, 65535, 0, 1, 65534, 0, 1, 65533, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 65535, 65534, 0, 65535, 65535, 0, 0, 0, 3, 1, 0, 3, 0, 1, 0, 1, 1, 0, 0, 4, 0, 65535, 4, 0, 65535, 5, 0, 0, 5, 0, 1, 4, 0, 1, 5, 0, 0, 6, 0, 65535, 6, 0, 1, 6, 0)
+}
+
+[node name="GridMap2" type="GridMap" parent="Level"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
+mesh_library = ExtResource("3_kr3qp")
+data = {
+"cells": PackedInt32Array(1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0)
+}
+
+[node name="Portal" parent="." instance=ExtResource("4_8hiuf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.6, 2, 0.2)
+
+[node name="Candy" parent="." instance=ExtResource("5_ymta0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.4, 1.75, 2.2)
+candy_stat = ExtResource("6_mhnwe")
+
+[node name="Box" parent="." instance=ExtResource("7_bgvqe")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.4, 3, 0.2)
+
+[node name="Box2" parent="." instance=ExtResource("7_bgvqe")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.4, 3, 0.2)
+
+[connection signal="candy_picked_up" from="Candy" to="Player" method="_on_node_eat_candy"]
+
+[editable path="Player"]
+[editable path="Level"]

@@ -12,4 +12,6 @@ script = ExtResource("1_lp7tl")
 type = 1
 mesh = SubResource("BoxMesh_lp7tl")
 material = SubResource("StandardMaterial3D_lp7tl")
+growth_amount = 0.0
+speed_change = 0.0
 metadata/_custom_type_script = "uid://xlnymbtxod8j"
