@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhv7b3snqk6cr"]
+
+[ext_resource type="PackedScene" uid="uid://cfdwy7qjsgund" path="res://components/level_component/Level1.tscn" id="1_41mym"]
+[ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="2_48m6x"]
+[ext_resource type="PackedScene" uid="uid://2nm7fdrdekse" path="res://scenes/portal/portal.tscn" id="3_ccqj4"]
+
+[node name="Level3-1" instance=ExtResource("1_41mym")]
+
+[node name="Player" parent="." index="4" instance=ExtResource("2_48m6x")]
+
+[node name="Portal" parent="." index="5" instance=ExtResource("3_ccqj4")]
