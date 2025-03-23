@@ -116,6 +116,21 @@ cap_bottom = false
 [sub_resource type="BoxShape3D" id="BoxShape3D_680jr"]
 size = Vector3(2, 2, 5)
 
+[sub_resource type="Animation" id="Animation_tgs4t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blades:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_s5et1"]
 resource_name = "Spin"
 length = 0.5
@@ -133,21 +148,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 1.5708, 0), Vector3(6.28319, 1.5708, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_tgs4t"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Blades:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1.5708, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tgs4t"]
 _data = {
 &"RESET": SubResource("Animation_tgs4t"),
@@ -158,7 +158,7 @@ _data = {
 script = ExtResource("1_lgoi2")
 
 [node name="Blades" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0046041, 0.00284052, 0.00223732)
+transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 0.0046041, 0.00284052, 0.00223732)
 mesh = SubResource("ArrayMesh_ii8wr")
 skeleton = NodePath("../Pole")
 
@@ -187,6 +187,7 @@ shape = SubResource("BoxShape3D_680jr")
 libraries = {
 &"": SubResource("AnimationLibrary_tgs4t")
 }
+autoplay = "Spin"
 
 [connection signal="body_entered" from="AreaComponent" to="AreaComponent" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaComponent" to="AreaComponent" method="_on_body_exited"]

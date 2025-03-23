@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ngipusfmseix"]
+[gd_scene load_steps=17 format=3 uid="uid://ngipusfmseix"]
 
 [ext_resource type="Script" uid="uid://crptc1ysksq41" path="res://components/level_component/Level.gd" id="1_l6grw"]
 [ext_resource type="Script" uid="uid://cy8grkel5jdvc" path="res://components/level_component/area_3d.gd" id="2_3dx25"]
@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="4_x5bi7"]
 [ext_resource type="PackedScene" uid="uid://3x5rrnu25nxo" path="res://scenes/pressure_plate/pressure_plate.tscn" id="5_o6w24"]
 [ext_resource type="PackedScene" uid="uid://dc62fbgadbiar" path="res://scenes/Box/Box.tscn" id="6_pc0re"]
+[ext_resource type="PackedScene" uid="uid://5g586dy1b12s" path="res://scenes/candy/candy.tscn" id="8_b2gw4"]
+[ext_resource type="Resource" uid="uid://dkejvf8kijtf2" path="res://scenes/candy/shrink_candy.tres" id="8_fibr7"]
+[ext_resource type="PackedScene" uid="uid://dobv2jvq1x0xp" path="res://scenes/gates/gate_normal.tscn" id="8_othgr"]
+[ext_resource type="Resource" uid="uid://bhe00bfbkd2mn" path="res://scenes/candy/grow_candy.tres" id="8_uo22m"]
+[ext_resource type="PackedScene" uid="uid://c36o0g6t3nbc7" path="res://scenes/gates/gate_small.tscn" id="9_uo22m"]
+[ext_resource type="PackedScene" uid="uid://c8q0jxygtgkut" path="res://scenes/fan/fan.tscn" id="10_othgr"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v0mcw"]
 
@@ -50,7 +56,7 @@ shadow_enabled = true
 environment = SubResource("Environment_ylp8c")
 
 [node name="Player" parent="." instance=ExtResource("4_x5bi7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.422129, 3, 4.27133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417387, 2.94086, 4.27164)
 
 [node name="PressurePlate" parent="." instance=ExtResource("5_o6w24")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.246867, 2, 2.83763)
@@ -61,6 +67,23 @@ plate_type = 1
 
 [node name="Box" parent="." instance=ExtResource("6_pc0re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00313, 3.00578, 0.30606)
+
+[node name="Candy" parent="." instance=ExtResource("8_b2gw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8316, 2, 1.25827)
+candy_stat = ExtResource("8_fibr7")
+
+[node name="Candy2" parent="." instance=ExtResource("8_b2gw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.845862, 2, 0.654795)
+candy_stat = ExtResource("8_uo22m")
+
+[node name="GateNormal" parent="." instance=ExtResource("8_othgr")]
+transform = Transform3D(0.00659731, 0, -0.999978, 0, 1, 0, 0.999978, 0, 0.00659731, -0.642741, 2, -1.35928)
+
+[node name="GateSmall" parent="." instance=ExtResource("9_uo22m")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.83881, 2, -1.29391)
+
+[node name="Fan" parent="." instance=ExtResource("10_othgr")]
+transform = Transform3D(0.0245194, 0, 0.999699, 0, 1, 0, -0.999699, 0, 0.0245194, 3.64403, 3.32488, -6.29511)
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
