@@ -8,9 +8,7 @@ func _physics_process(delta: float) -> void:
 		if get_collider(0).is_class("RigidBody3D"):
 			box = get_collider(0)
 			$"../AnimationTree".set("parameters/conditions/near box", true)
-			if %DebugLabel.text != "Press E to interact":
-				last_text = %DebugLabel.text
-				%DebugLabel.text = "Press E to interact"
-	else:
-		$"../AnimationTree".set("parameters/conditions/near box", false)
-		%DebugLabel.text = last_text
+			%DebugLabel.text = "Press E to interact"
+		else:
+		$	"../AnimationTree".set("parameters/conditions/near box", false)
+			%DebugLabel.text = ""

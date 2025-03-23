@@ -70,9 +70,6 @@ func _physics_process(_delta: float) -> void:
 			elif current_animation == AnimationState.Slow_Run:
 				$AnimationTree.get("parameters/playback").travel("Idle")
 				current_animation = AnimationState.Idle
-		
-		if Input.is_action_just_pressed("ui_accept") && current_animation != AnimationState.Pushing_pose && current_animation != AnimationState.Pushing:
-			$AnimationTree.get("parameters/playback").travel("Running Jump")
 
 		var target_basis: Basis = Basis().looking_at(-last_move_direction, Vector3.UP)
 		var current_quat: Quaternion = $kid.global_transform.basis.get_rotation_quaternion()
