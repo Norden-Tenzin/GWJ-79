@@ -63,4 +63,3 @@ candy_stat = ExtResource("5_gpvrx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.01, -5)
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
-[connection signal="candy_picked_up" from="Candy" to="Player" method="_on_node_eat_candy"]
