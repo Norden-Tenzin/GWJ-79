@@ -1,11 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhv7b3snqk6cr"]
+[gd_scene load_steps=4 format=3 uid="uid://bljak38tx1odh"]
 
-[ext_resource type="PackedScene" uid="uid://cfdwy7qjsgund" path="res://components/level_component/Level1.tscn" id="1_41mym"]
-[ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="2_48m6x"]
-[ext_resource type="PackedScene" uid="uid://2nm7fdrdekse" path="res://scenes/portal/portal.tscn" id="3_ccqj4"]
+[ext_resource type="PackedScene" uid="uid://hxhu0yda644h" path="res://scenes/Level.tscn" id="1_rlc0b"]
+[ext_resource type="MeshLibrary" uid="uid://uw36bqwkii8h" path="res://components/level_component/level_mesh_lib.tres" id="2_gu7i8"]
+[ext_resource type="PackedScene" uid="uid://c8q0jxygtgkut" path="res://scenes/fan/fan.tscn" id="3_chr5w"]
 
-[node name="Level3-1" instance=ExtResource("1_41mym")]
+[node name="Level3-1" instance=ExtResource("1_rlc0b")]
 
-[node name="Player" parent="." index="4" instance=ExtResource("2_48m6x")]
+[node name="GridMap2" type="GridMap" parent="." index="4"]
+mesh_library = ExtResource("2_gu7i8")
+data = {
+"cells": PackedInt32Array(65528, 0, 0, 65529, 0, 0, 65529, 65535, 0, 65528, 65535, 0, 65528, 1, 0, 65529, 1, 0, 65530, 1, 0, 65530, 0, 0, 65530, 65535, 0, 65531, 0, 0, 65532, 0, 0, 65533, 65535, 0, 65533, 0, 0, 65533, 1, 0, 65534, 1, 0, 65534, 0, 0, 65534, 65535, 0, 65535, 0, 0, 65535, 1, 0, 65535, 65535, 0, 65534, 65534, 0, 65534, 65533, 0, 65534, 65532, 0, 65533, 65533, 0, 65535, 65533, 0, 65534, 2, 0, 65534, 3, 0, 65533, 3, 0, 65533, 4, 0, 65533, 5, 0, 65534, 5, 0, 65534, 4, 0, 65535, 4, 0, 65535, 3, 0, 65535, 5, 0, 0, 1, 0, 0, 0, 0, 0, 65535, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 2, 65535, 0, 2, 0, 0, 2, 1, 0, 3, 0, 0, 4, 0, 0)
+}
 
-[node name="Portal" parent="." index="5" instance=ExtResource("3_ccqj4")]
+[node name="Fan" parent="." index="5" instance=ExtResource("3_chr5w")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.25712, 2.94107, -1.40855)
+
+[node name="Fan2" parent="." index="6" instance=ExtResource("3_chr5w")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.57463, 2.94107, -1.34633)

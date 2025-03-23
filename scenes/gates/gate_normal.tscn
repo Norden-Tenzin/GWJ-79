@@ -16,7 +16,7 @@ heightmap_scale = 1.0
 heightmap_texture = ExtResource("3_awjcl")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6yht2"]
-size = Vector3(0.504395, 1.98572, 0.510925)
+size = Vector3(0.504395, 1.98572, 0.340561)
 
 [node name="GateNormal" type="Node3D"]
 
@@ -31,9 +31,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_i0pyx")
 [node name="StaticBody3D" type="StaticBody3D" parent="Gate"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gate/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00555, 0.752472)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00555, 0.793846)
 shape = SubResource("BoxShape3D_6yht2")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Gate/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00555, -0.753736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00555, -0.797544)
 shape = SubResource("BoxShape3D_6yht2")
