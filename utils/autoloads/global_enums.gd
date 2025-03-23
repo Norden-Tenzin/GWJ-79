@@ -15,7 +15,10 @@ enum CandyType {
 enum MusicName {
 	None,
 	Normal,
-	Small
+	Small,
+	Level_1,
+	Level_2,
+	Level_3,
 }
 
 enum SceneName {

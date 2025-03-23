@@ -4,6 +4,8 @@ extends Node3D
 
 signal eat_candy(candy_type: GlobalEnums.CandyType)
 
+@export var music_name: GlobalEnums.MusicName = GlobalEnums.MusicName.Small
+
 var candy_count: int:
 	set(v):
 		candy_count = v
@@ -18,7 +20,7 @@ var plate_status: Dictionary[int, bool] = {}
 
 func _ready() -> void:
 	if Global.audio_manager:
-		Global.audio_manager.play(GlobalEnums.MusicName.Small)
+		Global.audio_manager.play(music_name)
 	# Connects candy signals to a single function
 	for child in get_children():
 		if child.is_in_group("Candy"):
