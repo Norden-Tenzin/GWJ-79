@@ -226,7 +226,7 @@ shadow_enabled = true
 environment = SubResource("Environment_ylp8c")
 
 [node name="Player" parent="." instance=ExtResource("4_746xv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2646, 3, 2.0284)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.2646, 3, 2.0284)
 
 [node name="Portal" parent="." instance=ExtResource("5_x4cbf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -8)
