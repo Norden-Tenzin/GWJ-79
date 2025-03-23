@@ -73,12 +73,11 @@ func _physics_process(_delta: float) -> void:
 			$AnimationTree.get("parameters/playback").travel("Running Jump")
 
 		var target_basis: Basis = Basis().looking_at(-last_move_direction, Vector3.UP)
-		var current_basis: Basis = $kid.global_transform.basis
-		var smoothed_basis: Basis = current_basis.slerp(target_basis, 0.1)
-
-		var new_transform: Transform3D = $kid.global_transform
-		new_transform.basis = smoothed_basis
-		$kid.global_transform = new_transform
+		var current_quat: Quaternion = $kid.global_transform.basis.get_rotation_quaternion()
+		var smoothed_quat: Quaternion = current_quat.slerp(target_basis.get_rotation_quaternion(), 0.1)
+		var scalee: Vector3 = $kid.global_transform.basis.get_scale()
+		$kid.global_transform.basis = Basis(smoothed_quat)
+		$kid.global_transform.basis = $kid.global_transform.basis.scaled(scalee)
 		velocity = root_velocity.length() * direction
 
 		if not is_on_floor():

@@ -202,6 +202,7 @@ _data = {
 size = Vector3(1, 1, 6.02808)
 
 [node name="Level" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_3c4s6")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -227,6 +228,9 @@ environment = SubResource("Environment_ylp8c")
 
 [node name="Player" parent="." instance=ExtResource("4_746xv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.2646, 3, 2.0284)
+jump_velocity = 4
+player_state = 1
+wind_force = 5.0
 
 [node name="Portal" parent="." instance=ExtResource("5_x4cbf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -8)
