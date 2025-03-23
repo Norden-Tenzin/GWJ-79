@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdscuek6lu8ot"
-path.s3tc="res://.godot/imported/kid roughness.png-943553cb63fbf1493d0e7a8c21a6c3f4.s3tc.ctex"
+uid="uid://62ngbt51lkf3"
+path.s3tc="res://.godot/imported/Pie_Lattice_Metallic.png-c19ad203cae865c60172258381d974a4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/3d assets/kidcandy/kid roughness.png"
-dest_files=["res://.godot/imported/kid roughness.png-943553cb63fbf1493d0e7a8c21a6c3f4.s3tc.ctex"]
+source_file="res://assets/art/textures/Pie_Lattice_Metallic.png"
+dest_files=["res://.godot/imported/Pie_Lattice_Metallic.png-c19ad203cae865c60172258381d974a4.s3tc.ctex"]
 
 [params]
 

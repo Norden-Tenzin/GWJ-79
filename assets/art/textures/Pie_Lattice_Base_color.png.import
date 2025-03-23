@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdscuek6lu8ot"
-path.s3tc="res://.godot/imported/kid roughness.png-943553cb63fbf1493d0e7a8c21a6c3f4.s3tc.ctex"
+uid="uid://bxujyxyhuvx7u"
+path.s3tc="res://.godot/imported/Pie_Lattice_Base_color.png-5e48d5554b10882f0347092bd2a55075.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/3d assets/kidcandy/kid roughness.png"
-dest_files=["res://.godot/imported/kid roughness.png-943553cb63fbf1493d0e7a8c21a6c3f4.s3tc.ctex"]
+source_file="res://assets/art/textures/Pie_Lattice_Base_color.png"
+dest_files=["res://.godot/imported/Pie_Lattice_Base_color.png-5e48d5554b10882f0347092bd2a55075.s3tc.ctex"]
 
 [params]
 
@@ -27,7 +27,7 @@ mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
 process/fix_alpha_border=true
-process/premult_alpha=false
+process/premult_alpha=true
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
