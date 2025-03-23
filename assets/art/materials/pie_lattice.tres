@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://df4pg3hhhtuc8"]
+
+[ext_resource type="Texture2D" uid="uid://bxujyxyhuvx7u" path="res://assets/art/textures/Pie_Lattice_Base_color.png" id="1_124an"]
+[ext_resource type="Texture2D" uid="uid://62ngbt51lkf3" path="res://assets/art/textures/Pie_Lattice_Metallic.png" id="2_bh7fq"]
+[ext_resource type="Texture2D" uid="uid://dtkumucuue61h" path="res://assets/art/textures/Pie_Lattice_Normal_DirectX.png" id="3_orxxa"]
+[ext_resource type="Texture2D" uid="uid://4jesj863ubob" path="res://assets/art/textures/Pie_Lattice_Roughness.png" id="4_fcevf"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_124an")
+metallic = 1.0
+metallic_texture = ExtResource("2_bh7fq")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("4_fcevf")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_orxxa")

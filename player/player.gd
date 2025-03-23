@@ -4,6 +4,8 @@ class_name Player
 @onready var debug_label: Label3D = %DebugLabel
 @export var jump_velocity: int = 4
 @export var player_state: GlobalEnums.PlayerState = GlobalEnums.PlayerState.Normal
+@onready var kid: Node3D = %kid
+@onready var collision_shape_3d: CollisionShape3D = %CollisionShape3D
 
 # TODO: pick wind_force
 @export var wind_force: float = 5
@@ -69,16 +71,15 @@ func _physics_process(_delta: float) -> void:
 				$AnimationTree.get("parameters/playback").travel("Idle")
 				current_animation = AnimationState.Idle
 		
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept") && current_animation != AnimationState.Pushing_pose && current_animation != AnimationState.Pushing:
 			$AnimationTree.get("parameters/playback").travel("Running Jump")
 
 		var target_basis: Basis = Basis().looking_at(-last_move_direction, Vector3.UP)
-		var current_basis: Basis = $kid.global_transform.basis
-		var smoothed_basis: Basis = current_basis.slerp(target_basis, 0.1)
-
-		var new_transform: Transform3D = $kid.global_transform
-		new_transform.basis = smoothed_basis
-		$kid.global_transform = new_transform
+		var current_quat: Quaternion = $kid.global_transform.basis.get_rotation_quaternion()
+		var smoothed_quat: Quaternion = current_quat.slerp(target_basis.get_rotation_quaternion(), 0.1)
+		var scalee: Vector3 = $kid.global_transform.basis.get_scale()
+		$kid.global_transform.basis = Basis(smoothed_quat)
+		$kid.global_transform.basis = $kid.global_transform.basis.scaled(scalee)
 		velocity = root_velocity.length() * direction
 
 		if not is_on_floor():
@@ -180,10 +181,16 @@ func update_state() -> void:
 	match player_state:
 		GlobalEnums.PlayerState.Small:
 			debug_label.text = "Small"
+			kid.scale = Vector3(0.5, 0.5, 0.5)
+			collision_shape_3d.shape.radius = 0.15
 		GlobalEnums.PlayerState.Normal:
 			debug_label.text = "Normal"
+			kid.scale = Vector3(1.0, 1.0, 1.0)
+			collision_shape_3d.shape.radius = 0.3
 		GlobalEnums.PlayerState.Big:
 			debug_label.text = "Big"
+			kid.scale = Vector3(2.0, 2.0, 2.0)
+			collision_shape_3d.shape.radius = 0.8
 
 # wind effect funcs
 func add_effect(fan_id: int, push_direction: Vector3) -> void:

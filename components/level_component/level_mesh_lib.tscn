@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cd0n73yovhqmq"]
+[gd_scene load_steps=16 format=3 uid="uid://cd0n73yovhqmq"]
 
 [ext_resource type="PackedScene" uid="uid://dqm0vkwj3mjts" path="res://assets/level_editor/level_cube.tscn" id="1_k811x"]
 [ext_resource type="PackedScene" uid="uid://xvt4m43otoj7" path="res://assets/level_editor/walls/wall_corner.tscn" id="2_ny5ug"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://basocg8df6yiu" path="res://assets/level_editor/walls/pillar_wall_end.tscn" id="10_ouhpm"]
 [ext_resource type="PackedScene" uid="uid://bohw0vft2dr5i" path="res://assets/level_editor/walls/pillar_wall_straight.tscn" id="11_o8hlw"]
 [ext_resource type="PackedScene" uid="uid://ccrmcxf01assj" path="res://assets/level_editor/walls/pillar_wall_t_junction.tscn" id="12_xg432"]
+[ext_resource type="PackedScene" uid="uid://bv7mgq68ukovh" path="res://assets/level_editor/walls/lattice.tscn" id="13_k0i8s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k811x"]
 albedo_color = Color(0, 0, 0, 1)
@@ -49,3 +50,5 @@ mesh = SubResource("BoxMesh_76ieg")
 [node name="pillar_wall_straight" parent="." instance=ExtResource("11_o8hlw")]
 
 [node name="pillar_wall_t_junction" parent="." instance=ExtResource("12_xg432")]
+
+[node name="lattice" parent="." instance=ExtResource("13_k0i8s")]

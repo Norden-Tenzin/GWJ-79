@@ -1,11 +1,112 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhv7b3snqk6cr"]
+[gd_scene load_steps=18 format=3 uid="uid://bljak38tx1odh"]
 
-[ext_resource type="PackedScene" uid="uid://cfdwy7qjsgund" path="res://components/level_component/Level1.tscn" id="1_41mym"]
-[ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="2_48m6x"]
-[ext_resource type="PackedScene" uid="uid://2nm7fdrdekse" path="res://scenes/portal/portal.tscn" id="3_ccqj4"]
+[ext_resource type="PackedScene" uid="uid://hxhu0yda644h" path="res://scenes/Level.tscn" id="1_rlc0b"]
+[ext_resource type="MeshLibrary" uid="uid://uw36bqwkii8h" path="res://components/level_component/level_mesh_lib.tres" id="2_gu7i8"]
+[ext_resource type="PackedScene" uid="uid://c8q0jxygtgkut" path="res://scenes/fan/fan.tscn" id="3_chr5w"]
+[ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="4_chr5w"]
+[ext_resource type="PackedScene" uid="uid://3x5rrnu25nxo" path="res://scenes/pressure_plate/pressure_plate.tscn" id="5_u23lg"]
+[ext_resource type="PackedScene" uid="uid://5g586dy1b12s" path="res://scenes/candy/candy.tscn" id="6_e5axh"]
+[ext_resource type="Resource" uid="uid://bhe00bfbkd2mn" path="res://scenes/candy/grow_candy.tres" id="7_hu2je"]
+[ext_resource type="Resource" uid="uid://dkejvf8kijtf2" path="res://scenes/candy/shrink_candy.tres" id="8_hu2je"]
+[ext_resource type="PackedScene" uid="uid://c36o0g6t3nbc7" path="res://scenes/gates/gate_small.tscn" id="9_45vc5"]
+[ext_resource type="PackedScene" uid="uid://dc62fbgadbiar" path="res://scenes/Box/Box.tscn" id="10_e4vkg"]
+[ext_resource type="PackedScene" uid="uid://cmldkqvn4d7j3" path="res://scenes/pressure_plate/vanishing_wall.tscn" id="11_iaha0"]
+[ext_resource type="PackedScene" uid="uid://2nm7fdrdekse" path="res://scenes/portal/portal.tscn" id="12_4conh"]
+[ext_resource type="Texture2D" uid="uid://cadmunweplou1" path="res://assets/art/textures/Brick_Tiles_Base_color.png" id="12_fol15"]
+[ext_resource type="Texture2D" uid="uid://nxqnlix2erry" path="res://assets/art/textures/Brick_Tiles_Normal_DirectX.png" id="13_i021w"]
 
-[node name="Level3-1" instance=ExtResource("1_41mym")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tanis"]
+albedo_color = Color(0.82, 0.80934, 0.1804, 1)
+albedo_texture = ExtResource("12_fol15")
+roughness = 0.8
+normal_enabled = true
+normal_texture = ExtResource("13_i021w")
 
-[node name="Player" parent="." index="4" instance=ExtResource("2_48m6x")]
+[sub_resource type="BoxMesh" id="BoxMesh_nlgas"]
+material = SubResource("StandardMaterial3D_tanis")
+size = Vector3(1, 2, 2)
 
-[node name="Portal" parent="." index="5" instance=ExtResource("3_ccqj4")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_fol15"]
+size = Vector3(1, 2, 2)
+
+[node name="Level3-1" instance=ExtResource("1_rlc0b")]
+
+[node name="GridMap" parent="." index="1"]
+data = {
+"cells": PackedInt32Array(0, 65533, 0, 5, 65535, 0, 5, 0, 0, 5, 1, 0, 6, 1, 0, 6, 0, 0, 7, 0, 0, 6, 65535, 0, 7, 65535, 0, 7, 1, 0, 131062, 65534, 655364, 131062, 2, 1048583, 131062, 65535, 1441800, 131062, 0, 1441800, 131062, 1, 1441800, 131063, 65534, 655368, 131064, 65534, 655368, 131065, 65534, 655368, 131066, 65535, 1048583, 131066, 65534, 9, 131066, 65533, 1441800, 131066, 65532, 655364, 131067, 65532, 655368, 131068, 65532, 655368, 131069, 65532, 655368, 131070, 65532, 655368, 131071, 65532, 655368, 65536, 65532, 655368, 65537, 65532, 1048580, 65537, 65533, 1048584, 65537, 65534, 1441796, 65538, 65534, 655368, 65539, 65534, 1048580, 65539, 65535, 1441796, 65540, 65535, 4, 65540, 65534, 655364, 65541, 65534, 655368, 65542, 65534, 655368, 65543, 65534, 655368, 65544, 65534, 1048580, 65544, 65535, 1048584, 65544, 0, 1048584, 65544, 1, 1048584, 65544, 2, 4, 65543, 2, 8, 65542, 2, 8, 65541, 2, 8, 65540, 2, 1441796, 65540, 1, 1048580, 65539, 1, 655364, 65539, 2, 1048584, 1, 2, 1048579, 2, 2, 1048579, 65539, 3, 1048583)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="GridMap2" type="GridMap" parent="." index="4"]
+mesh_library = ExtResource("2_gu7i8")
+data = {
+"cells": PackedInt32Array(65528, 0, 0, 65529, 0, 0, 65529, 65535, 0, 65528, 65535, 0, 65528, 1, 0, 65529, 1, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 65535, 0, 65533, 0, 0, 65533, 1, 0, 65534, 1, 0, 65534, 0, 0, 65534, 65535, 0, 65535, 0, 0, 65535, 1, 0, 65535, 65535, 0, 65534, 65534, 0, 65534, 65533, 0, 65534, 65532, 0, 65533, 65533, 0, 65535, 65533, 0, 65534, 2, 0, 65534, 3, 0, 65533, 3, 0, 65533, 4, 0, 65533, 5, 0, 65534, 5, 0, 65534, 4, 0, 65535, 4, 0, 65535, 3, 0, 65535, 5, 0, 0, 1, 0, 0, 0, 0, 0, 65535, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 3, 2, 65535, 0, 2, 0, 0, 2, 1, 3, 3, 0, 0, 4, 0, 0, 65527, 1, 0, 65527, 0, 0, 65527, 65535, 0, 65532, 65533, 0, 65531, 65533, 0, 65531, 65534, 0, 65531, 65535, 0, 65531, 1, 0, 65531, 2, 0, 65531, 3, 0, 65532, 4, 0, 65531, 4, 0)
+}
+
+[node name="GridMap3" type="GridMap" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+mesh_library = ExtResource("2_gu7i8")
+data = {
+"cells": PackedInt32Array(196599, 2, 7, 196602, 2, 9, 196602, 1, 1441799, 196600, 2, 655368, 196601, 2, 655368, 196604, 1, 1441799, 196605, 2, 655367, 196607, 2, 7, 196604, 3, 1048583, 196604, 65535, 1048583, 196605, 65534, 655367, 196607, 65534, 7, 131072, 65534, 655367, 131074, 3, 655367, 131072, 2, 1048580, 131072, 3, 655369, 196604, 65534, 655364, 196604, 2, 655369, 131073, 3, 655368, 196602, 5, 1441796, 196604, 6, 1441796, 131072, 6, 4, 131072, 4, 1048584, 131072, 5, 1048584, 196607, 6, 8, 196606, 6, 8, 196605, 6, 8, 196604, 5, 1048580, 196603, 5, 8, 196602, 4, 1441800, 196602, 3, 1441800)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)
+
+[node name="Fan" parent="." index="6" instance=ExtResource("3_chr5w")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 2.941, -1.75)
+
+[node name="Fan2" parent="." index="7" instance=ExtResource("3_chr5w")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 3, -1.75)
+
+[node name="Player" parent="." index="8" instance=ExtResource("4_chr5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 3, 1)
+
+[node name="PressurePlate" parent="." index="9" instance=ExtResource("5_u23lg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -5)
+
+[node name="Candy" parent="." index="10" instance=ExtResource("6_e5axh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.06468, 2.00981, 1.06007)
+candy_stat = ExtResource("7_hu2je")
+
+[node name="Candy2" parent="." index="11" instance=ExtResource("6_e5axh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.06468, 2.00981, 9.26947)
+candy_stat = ExtResource("8_hu2je")
+
+[node name="GateSmall" parent="." index="12" instance=ExtResource("9_45vc5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.31008, 2, -4.94175)
+
+[node name="GateSmall2" parent="." index="13" instance=ExtResource("9_45vc5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.54548, 2, -4.94175)
+
+[node name="Box" parent="." index="14" instance=ExtResource("10_e4vkg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99445, 2.82431, -5.03792)
+
+[node name="GateSmall3" parent="." index="15" instance=ExtResource("9_45vc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9301, 2, -0.286148)
+
+[node name="GateSmall4" parent="." index="16" instance=ExtResource("9_45vc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.96848, 2, 2.26704)
+
+[node name="GateSmall5" parent="." index="17" instance=ExtResource("9_45vc5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.32057, 2, 8.96521)
+
+[node name="VanishingWall" parent="." index="18" instance=ExtResource("11_iaha0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 3, 1)
+
+[node name="Mesh" parent="VanishingWall" index="0"]
+mesh = SubResource("BoxMesh_nlgas")
+
+[node name="CollisionShape3D" parent="VanishingWall" index="1"]
+shape = SubResource("BoxShape3D_fol15")
+
+[node name="Portal" parent="." index="19" instance=ExtResource("12_4conh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1073, 2.15168, 1.03825)
+
+[node name="Camera3D" type="Camera3D" parent="." index="20"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -1.05007, 19.414, 20.1178)
+projection = 1
+current = true
+size = 19.714
+
+[connection signal="plate_state_changed" from="PressurePlate" to="VanishingWall" method="_on_plate_state_changed"]
+
+[editable path="VanishingWall"]

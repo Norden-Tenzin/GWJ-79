@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://b4rf4iebocq5" path="res://assets/art/meshes/disc.tres" id="1_d8m35"]
 [ext_resource type="Script" uid="uid://xlnymbtxod8j" path="res://scenes/candy/candy_stats.gd" id="1_jxrop"]
-[ext_resource type="Material" uid="uid://cp5xhjyxkfhr4" path="res://assets/art/materials/disc.tres" id="1_xivru"]
+[ext_resource type="Material" uid="uid://my522f1pefnw" path="res://assets/art/materials/disc.tres" id="1_xivru"]
 
 [resource]
 script = ExtResource("1_jxrop")

@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://csg3jsx6xd5mp"]
+
+[ext_resource type="Texture2D" uid="uid://su8lx7efhjd1" path="res://assets/3d assets/kidcandy/kid basecolor.png" id="1_73wdk"]
+[ext_resource type="Texture2D" uid="uid://cd0o3g3yw6ngt" path="res://assets/3d assets/kidcandy/kids normalNormal.png" id="2_s7bng"]
+[ext_resource type="Texture2D" uid="uid://bdscuek6lu8ot" path="res://assets/3d assets/kidcandy/kid roughness.png" id="3_5qn6n"]
+
+[resource]
+albedo_texture = ExtResource("1_73wdk")
+roughness_texture = ExtResource("3_5qn6n")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = -1.0
+normal_texture = ExtResource("2_s7bng")

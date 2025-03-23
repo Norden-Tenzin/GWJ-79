@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdscuek6lu8ot"
-path.s3tc="res://.godot/imported/kid roughness.png-943553cb63fbf1493d0e7a8c21a6c3f4.s3tc.ctex"
+uid="uid://dtkumucuue61h"
+path.s3tc="res://.godot/imported/Pie_Lattice_Normal_DirectX.png-ba1391c15d45af81bb986bd747ed1c36.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/3d assets/kidcandy/kid roughness.png"
-dest_files=["res://.godot/imported/kid roughness.png-943553cb63fbf1493d0e7a8c21a6c3f4.s3tc.ctex"]
+source_file="res://assets/art/textures/Pie_Lattice_Normal_DirectX.png"
+dest_files=["res://.godot/imported/Pie_Lattice_Normal_DirectX.png-ba1391c15d45af81bb986bd747ed1c36.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://assets/art/textures/Pie_Lattice_Normal_DirectX.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
