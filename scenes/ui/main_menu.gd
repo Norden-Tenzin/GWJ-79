@@ -10,7 +10,7 @@ func _on_start_game_button_pressed() -> void:
 
 func _on_settings_button_pressed() -> void:
 	Global.scene_manager.change_gui_scene(
-		GlobalEnums.SceneName.SettingsMenu,
+		GlobalEnums.SceneName.SettingsMainMenu,
 		true,
 		false,
 		false

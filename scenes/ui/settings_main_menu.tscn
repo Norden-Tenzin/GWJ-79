@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpbaowuyav0gu"]
+[gd_scene load_steps=5 format=3 uid="uid://bpbaowuyav0gu"]
 
-[ext_resource type="Theme" uid="uid://cyst5nhklxtvu" path="res://scenes/ui/ui_theme.tres" id="1_mhswj"]
-[ext_resource type="Script" uid="uid://ds0bsnpgormsn" path="res://scenes/ui/settings_menu.gd" id="1_qwcqe"]
+[ext_resource type="Theme" uid="uid://cyst5nhklxtvu" path="res://scenes/ui/ui_theme.tres" id="1_07op4"]
+[ext_resource type="Script" uid="uid://ds0bsnpgormsn" path="res://scenes/ui/settings_menu.gd" id="2_qpkuu"]
+[ext_resource type="Texture2D" uid="uid://b87hux424pgol" path="res://assets/art/images/main_screen.png" id="3_u5d8d"]
 
 [sub_resource type="Theme" id="Theme_sl1te"]
 
@@ -12,8 +13,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_mhswj")
-script = ExtResource("1_qwcqe")
+theme = ExtResource("1_07op4")
+script = ExtResource("2_qpkuu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_u5d8d")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -30,8 +37,10 @@ size_flags_horizontal = 3
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_constants/margin_top = 300
+size_flags_vertical = 8
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 300
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -119,10 +128,6 @@ size_flags_vertical = 1
 max_value = 1.0
 step = 0.05
 value = 1.0
-
-[node name="Spacer2" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

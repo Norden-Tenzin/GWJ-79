@@ -20,8 +20,10 @@ enum MusicName {
 
 enum SceneName {
 	MainMenu,
-	SettingsMenu,
+	SettingsMainMenu,
+	SettingsPauseMenu,
 	PauseMenu,
+	EndScreen,
 	Level1_1,
 	Level1_2,
 	Level1_3,

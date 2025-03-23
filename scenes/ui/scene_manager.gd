@@ -27,7 +27,9 @@ const level_3_3: String = "res://scenes/levels/level_2/level_2_3.tscn"
 # UI
 const main_menu: String = "res://scenes/ui/main_menu.tscn"
 const pause_menu: String = "res://scenes/ui/pause_menu.tscn"
-const settings_menu: String = "res://scenes/ui/settings_menu.tscn"
+const settings_main_menu: String = "res://scenes/ui/settings_main_menu.tscn"
+const settings_pause_menu: String = "res://scenes/ui/settings_pause_menu.tscn"
+const end_screen: String = "res://scenes/ui/end_screen.tscn"
 
 func _ready() -> void:
 	Global.scene_manager = self
@@ -58,8 +60,12 @@ func get_scene(scene_name: GlobalEnums.SceneName) -> Node:
 			return load(main_menu).instantiate()
 		GlobalEnums.SceneName.PauseMenu:
 			return load(pause_menu).instantiate()
-		GlobalEnums.SceneName.SettingsMenu:
-			return load(settings_menu).instantiate()
+		GlobalEnums.SceneName.SettingsMainMenu:
+			return load(settings_main_menu).instantiate()
+		GlobalEnums.SceneName.SettingsPauseMenu:
+			return load(settings_pause_menu).instantiate()
+		GlobalEnums.SceneName.EndScreen:
+			return load(end_screen).instantiate()
 		GlobalEnums.SceneName.Level1_1:
 			return load(level_1_1).instantiate()
 		GlobalEnums.SceneName.Level1_2:
