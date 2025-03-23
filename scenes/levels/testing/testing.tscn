@@ -66,7 +66,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01906, 2, 2.15367)
 plate_type = 1
 
 [node name="Box" parent="." instance=ExtResource("6_pc0re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00313, 3.00578, 0.30606)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76361, 3.00578, 2.83274)
 
 [node name="Candy" parent="." instance=ExtResource("8_b2gw4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8316, 2, 1.25827)
@@ -77,10 +77,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.845862, 2, 0.654795)
 candy_stat = ExtResource("8_uo22m")
 
 [node name="GateNormal" parent="." instance=ExtResource("8_othgr")]
-transform = Transform3D(0.00659731, 0, -0.999978, 0, 1, 0, 0.999978, 0, 0.00659731, -0.642741, 2, -1.35928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642741, 2, -1.35928)
 
 [node name="GateSmall" parent="." instance=ExtResource("9_uo22m")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.83881, 2, -1.29391)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.83881, 2, -1.29391)
 
 [node name="Fan" parent="." instance=ExtResource("10_othgr")]
 transform = Transform3D(0.0245194, 0, 0.999699, 0, 1, 0, -0.999699, 0, 0.0245194, 3.64403, 3.32488, -6.29511)

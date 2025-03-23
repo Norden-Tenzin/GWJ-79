@@ -1,4 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://c36o0g6t3nbc7"]
+[gd_scene load_steps=10 format=4 uid="uid://c36o0g6t3nbc7"]
+
+[ext_resource type="Texture2D" uid="uid://eakuvo5g5sbf" path="res://assets/3d assets/gates/gate0.5/textures/basecolorpng.png" id="1_bujtj"]
+[ext_resource type="Texture2D" uid="uid://dbjgeixukrf16" path="res://assets/3d assets/gates/gate0.5/textures/Gate1Normal.png" id="2_8bhfi"]
+[ext_resource type="Texture2D" uid="uid://djlsrgaattmvs" path="res://assets/3d assets/gates/gate0.5/textures/bump.png" id="2_tca01"]
+[ext_resource type="Texture2D" uid="uid://bqxkmaglhcpf5" path="res://assets/3d assets/gates/gate0.5/textures/roughness1.png" id="2_yxc3p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxmws"]
 resource_name = "Material.001"
@@ -40,22 +45,34 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_yt4u7")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxc3p"]
+albedo_texture = ExtResource("1_bujtj")
+roughness_texture = ExtResource("2_yxc3p")
+normal_enabled = true
+normal_texture = ExtResource("2_8bhfi")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("2_tca01")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_3qgu3"]
 size = Vector3(0.50293, 1.99573, 0.749512)
 
 [node name="GateSmall" type="Node3D"]
+
+[node name="Gate" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="Cube" type="MeshInstance3D" parent="Gate"]
 mesh = SubResource("ArrayMesh_7cl8e")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_yxc3p")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="Gate"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gate/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00146484, 1.00812, 0.627335)
 shape = SubResource("BoxShape3D_3qgu3")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Gate/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00143623, 1.00812, -0.623405)
 shape = SubResource("BoxShape3D_3qgu3")

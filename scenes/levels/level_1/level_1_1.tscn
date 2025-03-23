@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://bhe00bfbkd2mn" path="res://scenes/candy/grow_candy.tres" id="7_eixwq"]
 [ext_resource type="PackedScene" uid="uid://bmxpel8ucgwno" path="res://scenes/sprites/witch.tscn" id="8_k1sth"]
 [ext_resource type="Script" uid="uid://djvqqbj6sun4w" path="res://scenes/levels/level_1/level_door_intro.gd" id="9_3c4s6"]
-[ext_resource type="Material" path="res://assets/art/materials/door.tres" id="10_7yy0m"]
+[ext_resource type="Material" uid="uid://cdxlwogs78s67" path="res://assets/art/materials/door.tres" id="10_7yy0m"]
 [ext_resource type="Script" uid="uid://duqvlyi50ju2l" path="res://scenes/levels/level_1/dialog_area.gd" id="11_66oap"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v0mcw"]

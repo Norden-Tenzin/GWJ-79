@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://croa6gk24ksee"]
 
-[ext_resource type="Shader" uid="uid://b4hhmqm4yxcoq" path="res://assets/art/materials/simple_unshaded.gdshader" id="1_qcsp8"]
+[ext_resource type="Shader" path="res://assets/art/materials/simple_unshaded.gdshader" id="1_qcsp8"]
 
 [resource]
 resource_local_to_scene = true
