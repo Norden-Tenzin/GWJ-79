@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://b4hhmqm4yxcoq" path="res://assets/art/materials/simple_unshaded.gdshader" id="1_qcsp8"]
 
 [resource]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_qcsp8")
 shader_parameter/tint = Color(0.807229, 0.690064, 2.31028e-06, 1)
