@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ngipusfmseix"]
+[gd_scene load_steps=18 format=3 uid="uid://ngipusfmseix"]
 
 [ext_resource type="Script" uid="uid://crptc1ysksq41" path="res://components/level_component/Level.gd" id="1_l6grw"]
 [ext_resource type="Script" uid="uid://cy8grkel5jdvc" path="res://components/level_component/area_3d.gd" id="2_3dx25"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://bhe00bfbkd2mn" path="res://scenes/candy/grow_candy.tres" id="8_uo22m"]
 [ext_resource type="PackedScene" uid="uid://c36o0g6t3nbc7" path="res://scenes/gates/gate_small.tscn" id="9_uo22m"]
 [ext_resource type="PackedScene" uid="uid://c8q0jxygtgkut" path="res://scenes/fan/fan.tscn" id="10_othgr"]
+[ext_resource type="PackedScene" uid="uid://cjtqqhrxeopnv" path="res://assets/level_editor/walls/lattice.tscn" id="13_ukval"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v0mcw"]
 
@@ -32,7 +33,7 @@ sky = SubResource("Sky_ylp8c")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="Level" type="Node3D"]
+[node name="Level2" type="Node3D"]
 script = ExtResource("1_l6grw")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -56,7 +57,7 @@ shadow_enabled = true
 environment = SubResource("Environment_ylp8c")
 
 [node name="Player" parent="." instance=ExtResource("4_x5bi7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417387, 2.94086, 4.27164)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.29972, 2.94086, 5.29742)
 
 [node name="PressurePlate" parent="." instance=ExtResource("5_o6w24")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.246867, 2, 2.83763)
@@ -73,7 +74,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8316, 2, 1.25827)
 candy_stat = ExtResource("8_fibr7")
 
 [node name="Candy2" parent="." instance=ExtResource("8_b2gw4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.845862, 2, 0.654795)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.23009, 2, 6.42946)
 candy_stat = ExtResource("8_uo22m")
 
 [node name="GateNormal" parent="." instance=ExtResource("8_othgr")]
