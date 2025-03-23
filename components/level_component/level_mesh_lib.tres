@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://bci5hgffrtww6" path="res://assets/art/materials/wall.tres" id="2_licu4"]
 [ext_resource type="Material" uid="uid://bgav0ibfa0da2" path="res://assets/art/materials/floor.tres" id="3_licu4"]
-[ext_resource type="Material" path="res://assets/art/materials/pie_lattice.tres" id="3_pnb17"]
+[ext_resource type="Material" uid="uid://df4pg3hhhtuc8" path="res://assets/art/materials/pie_lattice.tres" id="3_pnb17"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8rul4"]
 _surfaces = [{

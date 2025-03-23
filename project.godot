@@ -72,7 +72,7 @@ project/assembly_name="GWJ-97"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/godot-vim/plugin.cfg")
 
 [filesystem]
 
@@ -142,3 +142,8 @@ dialogic_default_action={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

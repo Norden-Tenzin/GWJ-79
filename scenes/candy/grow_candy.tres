@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_jxrop")
-type = 1
+type = 0
 mesh = ExtResource("1_d8m35")
 material = ExtResource("1_xivru")
 growth_amount = 0.0
