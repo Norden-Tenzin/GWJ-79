@@ -10,5 +10,5 @@ func _physics_process(delta: float) -> void:
 			$"../AnimationTree".set("parameters/conditions/near box", true)
 			%DebugLabel.text = "Press E to interact"
 		else:
-		$	"../AnimationTree".set("parameters/conditions/near box", false)
+			$"../AnimationTree".set("parameters/conditions/near box", false)
 			%DebugLabel.text = ""

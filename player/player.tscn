@@ -1,13 +1,16 @@
-[gd_scene load_steps=32 format=3 uid="uid://2p34a5pdrnq4"]
+[gd_scene load_steps=36 format=3 uid="uid://2p34a5pdrnq4"]
 
 [ext_resource type="Script" uid="uid://brop88kk5pknk" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://mxjk2oruff3x" path="res://player/camera_3d.gd" id="2_rkbax"]
 [ext_resource type="Shader" uid="uid://ckx67t3t7x3ge" path="res://player/outline.gdshader" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://dqe11nq6i5a2" path="res://player/stencil_viewport.gd" id="3_yw30f"]
 [ext_resource type="PackedScene" uid="uid://bp0e856x5ruxg" path="res://assets/kidcandy/kid.glb" id="5_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://su8lx7efhjd1" path="res://assets/3d assets/kidcandy/kid basecolor.png" id="6_ebec5"]
 [ext_resource type="Script" uid="uid://d2hygi0o3an0x" path="res://player/ray_cast_3d.gd" id="6_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://dvaemgk1f387" path="res://player/debug_label.tscn" id="7_boad6"]
+[ext_resource type="Texture2D" uid="uid://cd0o3g3yw6ngt" path="res://assets/3d assets/kidcandy/kids normalNormal.png" id="8_kb6p2"]
 [ext_resource type="Script" uid="uid://b81hj1c7wkutx" path="res://player/shape_cast_3d.gd" id="8_rgyib"]
+[ext_resource type="Texture2D" uid="uid://bdscuek6lu8ot" path="res://assets/3d assets/kidcandy/kid roughness.png" id="9_wodsf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rgyib"]
 radius = 0.3
@@ -22,6 +25,12 @@ shader = ExtResource("3_g1dw6")
 shader_parameter/lineWeight = 1.0
 shader_parameter/outlineColor = Color(3, 0.8, 0, 0.8)
 shader_parameter/stencilMask = SubResource("ViewportTexture_qjkh3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ieo8"]
+albedo_texture = ExtResource("6_ebec5")
+roughness_texture = ExtResource("9_wodsf")
+normal_enabled = true
+normal_texture = ExtResource("8_kb6p2")
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g6k8r"]
 animation = &"Idle"
@@ -156,30 +165,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.946411, 0)
 
 [node name="Skeleton3D" parent="kid/Armature" index="0"]
 bones/0/position = Vector3(0.0589747, -0.0411787, -0.00943589)
-bones/1/rotation = Quaternion(-0.0350619, -0.916217, 0.0187654, 0.398703)
-bones/2/rotation = Quaternion(-0.0102969, 0.0396275, -0.0336619, 0.998594)
-bones/3/rotation = Quaternion(-0.0161503, 0.0813201, -0.0986359, 0.991664)
-bones/4/rotation = Quaternion(-0.0161503, 0.08132, -0.098636, 0.991664)
-bones/5/rotation = Quaternion(0.00204264, -0.0110285, 0.0126642, 0.999857)
-bones/6/rotation = Quaternion(-0.00792303, 0.176052, 0.0448682, 0.983326)
+bones/1/rotation = Quaternion(-0.0363896, -0.916088, 0.019464, 0.398849)
+bones/2/rotation = Quaternion(-0.0103355, 0.0396376, -0.0319372, 0.99865)
+bones/3/rotation = Quaternion(-0.0163781, 0.0813081, -0.0951077, 0.992006)
+bones/4/rotation = Quaternion(-0.0163781, 0.081308, -0.0951077, 0.992006)
+bones/5/rotation = Quaternion(0.00163433, -0.0106752, 0.0081146, 0.999909)
+bones/6/rotation = Quaternion(-0.00392738, 0.178074, 0.0684784, 0.981624)
 bones/7/rotation = Quaternion(-1.35953e-09, 0.707107, 2.67662e-09, 0.707107)
-bones/8/rotation = Quaternion(0.00425602, -0.388241, 0.921382, 0.0174918)
-bones/9/rotation = Quaternion(-0.0738326, 0.966974, 0.231086, 0.0781666)
-bones/10/rotation = Quaternion(0.00748622, 0.056753, -0.408863, 0.910799)
-bones/12/rotation = Quaternion(0.926787, 0.00781951, -0.0626678, 0.370241)
-bones/13/rotation = Quaternion(-0.145861, 0.962076, 0.201134, -0.1126)
-bones/14/rotation = Quaternion(-0.0420915, 0.0173128, 0.363013, 0.930672)
-bones/16/rotation = Quaternion(0.0804103, -0.167835, 0.949215, -0.253688)
-bones/17/rotation = Quaternion(0.126623, 0.122084, -0.347094, 0.921188)
-bones/18/rotation = Quaternion(0.358935, -0.65126, 0.289274, 0.602782)
-bones/19/rotation = Quaternion(0.381766, 0.0293901, -0.0277119, 0.923376)
-bones/21/rotation = Quaternion(-0.122738, 0.190666, 0.969491, 0.0931116)
-bones/22/rotation = Quaternion(-0.0617448, 0.0557312, -0.304259, 0.948951)
-bones/23/rotation = Quaternion(0.343939, -0.473659, 0.568113, 0.578447)
+bones/8/rotation = Quaternion(0.0102466, -0.400113, 0.916184, 0.0203004)
+bones/9/rotation = Quaternion(-0.0715173, 0.965624, 0.238142, 0.0757884)
+bones/10/rotation = Quaternion(0.00414308, 0.058974, -0.414361, 0.90819)
+bones/12/rotation = Quaternion(0.921942, 0.00507321, -0.0551911, 0.383341)
+bones/13/rotation = Quaternion(-0.149388, 0.960038, 0.213435, -0.102257)
+bones/14/rotation = Quaternion(-0.0463313, 0.0062395, 0.364894, 0.929875)
+bones/16/rotation = Quaternion(0.0811429, -0.166896, 0.950354, -0.249779)
+bones/17/rotation = Quaternion(0.126681, 0.122124, -0.344444, 0.922169)
+bones/18/rotation = Quaternion(0.358555, -0.649789, 0.289903, 0.604292)
+bones/19/rotation = Quaternion(0.38177, 0.0286873, -0.0278595, 0.923392)
+bones/21/rotation = Quaternion(-0.123255, 0.19153, 0.968312, 0.102453)
+bones/22/rotation = Quaternion(-0.0628436, 0.0574484, -0.287714, 0.953924)
+bones/23/rotation = Quaternion(0.338269, -0.477265, 0.563902, 0.582929)
 bones/24/rotation = Quaternion(0.379536, -0.00637059, 0.00271993, 0.925151)
 
 [node name="roughness" parent="kid/Armature/Skeleton3D" index="0"]
 layers = 3
+surface_material_override/0 = SubResource("StandardMaterial3D_2ieo8")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("%kid")
