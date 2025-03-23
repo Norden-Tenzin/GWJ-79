@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgvp17jw0yna6"]
+[gd_scene load_steps=6 format=3 uid="uid://ong578f63p5p"]
 
 [ext_resource type="Script" uid="uid://bod5ckmwhxjsb" path="res://assets/level_editor/wire_mesh.gd" id="1_ou4yh"]
 [ext_resource type="PackedScene" uid="uid://dbma7iytxf8su" path="res://components/area_component/area_component.tscn" id="2_64n1m"]

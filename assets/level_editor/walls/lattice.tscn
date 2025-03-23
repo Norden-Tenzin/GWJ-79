@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://bv7mgq68ukovh"]
+[gd_scene load_steps=9 format=4 uid="uid://cjtqqhrxeopnv"]
 
 [ext_resource type="Material" uid="uid://df4pg3hhhtuc8" path="res://assets/art/materials/pie_lattice.tres" id="1_3c0ty"]
+[ext_resource type="Script" uid="uid://bod5ckmwhxjsb" path="res://assets/level_editor/wire_mesh.gd" id="1_yjo5q"]
+[ext_resource type="PackedScene" uid="uid://dbma7iytxf8su" path="res://components/area_component/area_component.tscn" id="2_iwwjn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dk1m"]
 
@@ -36,9 +38,35 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kixr1")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yjo5q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xvw7x"]
+size = Vector3(1.99799, 2.09915, 1.99869)
+
 [node name="lattice" type="Node3D"]
+script = ExtResource("1_yjo5q")
 
 [node name="LATTICE" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_iwwjn")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_3c0ty")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LATTICE"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LATTICE/StaticBody3D"]
+unique_name_in_owner = true
+shape = SubResource("BoxShape3D_yjo5q")
+
+[node name="AreaComponent" parent="." instance=ExtResource("2_iwwjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.639536, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000946045, -0.602371, -0.000686646)
+shape = SubResource("BoxShape3D_xvw7x")
+
+[connection signal="body_entered" from="AreaComponent" to="AreaComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="AreaComponent" to="AreaComponent" method="_on_body_exited"]
+[connection signal="node_entered" from="AreaComponent" to="." method="_on_area_component_node_entered"]
+[connection signal="node_exited" from="AreaComponent" to="." method="_on_area_component_node_exited"]

@@ -1,9 +1,11 @@
 extends Node3D
 
-@onready var collision_shape_3d: CollisionShape3D = $MeshInstance3D/StaticBody3D/CollisionShape3D
+@onready var collision_shape_3d: CollisionShape3D = %CollisionShape3D
 
 func _on_area_component_node_entered(body: Node3D) -> void:
+	print("HERE")
 	if body.is_in_group("Player"):
+		print(Global.player.player_state)
 		match Global.player.player_state:
 			GlobalEnums.PlayerState.Small:
 				collision_shape_3d.disabled = true

@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://bljak38tx1odh"]
+[gd_scene load_steps=18 format=3 uid="uid://dhv7b3snqk6cr"]
 
-[ext_resource type="PackedScene" uid="uid://hxhu0yda644h" path="res://scenes/Level.tscn" id="1_rlc0b"]
+[ext_resource type="PackedScene" path="res://scenes/Level.tscn" id="1_rlc0b"]
 [ext_resource type="MeshLibrary" uid="uid://uw36bqwkii8h" path="res://components/level_component/level_mesh_lib.tres" id="2_gu7i8"]
 [ext_resource type="PackedScene" uid="uid://c8q0jxygtgkut" path="res://scenes/fan/fan.tscn" id="3_chr5w"]
 [ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="4_chr5w"]
