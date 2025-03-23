@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://dc62fbgadbiar"]
 
 [ext_resource type="Material" uid="uid://c0x0qklhclhqf" path="res://assets/art/materials/box.tres" id="1_oua6t"]
-[ext_resource type="Material" uid="uid://cxrh6etoh0g85" path="res://assets/art/materials/mallow.tres" id="2_0ni7k"]
+[ext_resource type="Material" path="res://assets/art/materials/mallow.tres" id="2_0ni7k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2l3ut"]
 
@@ -81,6 +81,7 @@ lock_rotation = true
 [node name="Weight" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Weight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00360608, -0.00578403, -0.00620937)
 visible = false
 mesh = SubResource("ArrayMesh_ayulf")
 surface_material_override/0 = ExtResource("1_oua6t")

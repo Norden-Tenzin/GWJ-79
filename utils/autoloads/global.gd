@@ -15,5 +15,6 @@ var sfx_volume: float = 1.0
 # - connect pin wheel to fan - DONE
 # - witch billboard, kid billboard - DONE
 # - dialog intro - DONE
-# - candy transition
-# - shaders
+# - candy transition - DONE
+# - shaders - 
+# - fix bug

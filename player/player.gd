@@ -30,61 +30,65 @@ func _process(delta: float) -> void:
 	set_quaternion(get_quaternion() * root_rotation)
 
 func _physics_process(_delta: float) -> void:
-	var input_dir: Vector2 = Input.get_vector("left", "right", "backward", "forward")
-	if Input.is_action_just_pressed("ready to push box") && current_animation != AnimationState.Pushing_pose && current_animation != AnimationState.Pushing && $AnimationTree.get("parameters/conditions/near box"):
-		var point: Node3D = get_closest_node_on_body($ShapeCast3D.box)
-		global_position.x = point.global_position.x
-		global_position.z = point.global_position.z
-		var look_at_dir: Vector3
-		look_at_dir.x = point.transform.basis.z.x
-		look_at_dir.z = point.transform.basis.z.z
-		look_at_dir = look_at_dir.normalized()
-		last_move_direction = look_at_dir
-		direction = look_at_dir
-		$AnimationTree.get("parameters/playback").travel("Pushing pose")
-		current_animation = AnimationState.Pushing_pose
-	elif Input.is_action_just_pressed("ready to push box") && (current_animation == AnimationState.Pushing || current_animation == AnimationState.Pushing_pose):
-		$AnimationTree.get("parameters/playback").travel("Idle")
-		current_animation = AnimationState.Idle
-	elif current_animation != AnimationState.Pushing_pose && current_animation != AnimationState.Pushing:
-		direction = ($Camera3D.direction.x * input_dir.x) + ($Camera3D.direction.z * input_dir.y)
-		direction.y = 0.0
-		direction = direction.normalized()
-		
-		
-	if input_dir.length() > 0:
-		if current_animation == AnimationState.Pushing_pose:
-			$AnimationTree.get("parameters/playback").travel("Pushing")
-			current_animation = AnimationState.Pushing
-		elif current_animation == AnimationState.Idle || current_animation == AnimationState.Slow_Run:
-			$AnimationTree.get("parameters/playback").travel("Slow Run")
-			current_animation = AnimationState.Slow_Run
-			last_move_direction = direction
-	else:
-		if current_animation == AnimationState.Pushing:
+	if Dialogic.current_timeline == null:
+		var input_dir: Vector2 = Input.get_vector("left", "right", "backward", "forward")
+		if Input.is_action_just_pressed("ready to push box") && current_animation != AnimationState.Pushing_pose && current_animation != AnimationState.Pushing && $AnimationTree.get("parameters/conditions/near box"):
+			var point: Node3D = get_closest_node_on_body($ShapeCast3D.box)
+			global_position.x = point.global_position.x
+			global_position.z = point.global_position.z
+			var look_at_dir: Vector3
+			look_at_dir.x = point.transform.basis.z.x
+			look_at_dir.z = point.transform.basis.z.z
+			look_at_dir = look_at_dir.normalized()
+			last_move_direction = look_at_dir
+			direction = look_at_dir
 			$AnimationTree.get("parameters/playback").travel("Pushing pose")
 			current_animation = AnimationState.Pushing_pose
-		elif current_animation == AnimationState.Slow_Run:
+		elif Input.is_action_just_pressed("ready to push box") && (current_animation == AnimationState.Pushing || current_animation == AnimationState.Pushing_pose):
 			$AnimationTree.get("parameters/playback").travel("Idle")
 			current_animation = AnimationState.Idle
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		$AnimationTree.get("parameters/playback").travel("Running Jump")
+		elif current_animation != AnimationState.Pushing_pose && current_animation != AnimationState.Pushing:
+			direction = ($Camera3D.direction.x * input_dir.x) + ($Camera3D.direction.z * input_dir.y)
+			direction.y = 0.0
+			direction = direction.normalized()
+			
+			
+		if input_dir.length() > 0:
+			if current_animation == AnimationState.Pushing_pose:
+				$AnimationTree.get("parameters/playback").travel("Pushing")
+				current_animation = AnimationState.Pushing
+			elif current_animation == AnimationState.Idle || current_animation == AnimationState.Slow_Run:
+				$AnimationTree.get("parameters/playback").travel("Slow Run")
+				current_animation = AnimationState.Slow_Run
+				last_move_direction = direction
+		else:
+			if current_animation == AnimationState.Pushing:
+				$AnimationTree.get("parameters/playback").travel("Pushing pose")
+				current_animation = AnimationState.Pushing_pose
+			elif current_animation == AnimationState.Slow_Run:
+				$AnimationTree.get("parameters/playback").travel("Idle")
+				current_animation = AnimationState.Idle
+		
+		if Input.is_action_just_pressed("ui_accept"):
+			$AnimationTree.get("parameters/playback").travel("Running Jump")
 
-	var target_basis: Basis = Basis().looking_at(-last_move_direction, Vector3.UP)
-	var current_basis: Basis = $kid.global_transform.basis
-	var smoothed_basis: Basis = current_basis.slerp(target_basis, 0.1)
+		var target_basis: Basis = Basis().looking_at(-last_move_direction, Vector3.UP)
+		var current_basis: Basis = $kid.global_transform.basis
+		var smoothed_basis: Basis = current_basis.slerp(target_basis, 0.1)
 
-	var new_transform: Transform3D = $kid.global_transform
-	new_transform.basis = smoothed_basis
-	$kid.global_transform = new_transform
-	velocity = root_velocity.length() * direction
+		var new_transform: Transform3D = $kid.global_transform
+		new_transform.basis = smoothed_basis
+		$kid.global_transform = new_transform
+		velocity = root_velocity.length() * direction
 
-	if not is_on_floor():
-		velocity.y -= gravity
-	wind_effect()
-	push_away_rigid_bodies()
-	move_and_slide()
+		if not is_on_floor():
+			velocity.y -= gravity
+		wind_effect()
+		push_away_rigid_bodies()
+		move_and_slide()
+	else:
+		$AnimationTree.get("parameters/playback").travel("Idle")
+		current_animation = AnimationState.Idle
 
 # Pushing Boxes functionality
 func push_away_rigid_bodies() -> void:
