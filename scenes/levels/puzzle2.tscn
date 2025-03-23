@@ -38,6 +38,9 @@ metadata/_custom_type_script = "uid://xlnymbtxod8j"
 
 [node name="Player" parent="." instance=ExtResource("1_fn5pr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0363355, 4.96415, 17.9398)
+jump_velocity = 4
+player_state = 1
+wind_force = 5.0
 
 [node name="Level" parent="." instance=ExtResource("2_bf6ku")]
 
