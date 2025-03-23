@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bmxpel8ucgwno"]
 
-[ext_resource type="Texture2D" uid="uid://cg8siuc4mp13m" path="res://assets/art/sprites/witch_far.png" id="1_jsr04"]
+[ext_resource type="Texture2D" uid="uid://dsy4q18ymj871" path="res://assets/art/sprites/witch_far.png" id="1_jsr04"]
 
 [node name="Witch" type="Node3D"]
 

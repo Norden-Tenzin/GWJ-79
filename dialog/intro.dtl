@@ -11,7 +11,7 @@ join kid left
 kid: CANDY LAND!!? whats candy land?
 join kid leftmost
 join witch right
-witch: Its a magical place where EVERYTHING is candy. 
+witch: Its a magical place where EVERYTHING is candy.
 witch: The river is candy, the flowers are candy, even the cloud is candy. Hmm.. you wouldnt happen to like candy now would you?
 join witch rightmost
 join kid left

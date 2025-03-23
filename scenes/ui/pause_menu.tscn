@@ -38,7 +38,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme_override_constants/margin_top = 200
+theme_override_constants/margin_top = 300
 
 [node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -83,8 +83,8 @@ text = "Quit"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[connection signal="pressed" from="HBoxContainer/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer/ReloadButton" to="." method="_on_reload_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/PanelContainer2/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
