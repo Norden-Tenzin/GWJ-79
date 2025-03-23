@@ -27,6 +27,7 @@ enum SceneName {
 	SettingsPauseMenu,
 	PauseMenu,
 	EndScreen,
+	Level1_0,
 	Level1_1,
 	Level1_2,
 	Level1_3,

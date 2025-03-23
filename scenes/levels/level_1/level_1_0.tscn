@@ -241,7 +241,8 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.26
 
 [node name="Portal" parent="." instance=ExtResource("5_tkaok")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 2)
-next_lvl = 3
+next_lvl = 6
+transition_type = 1
 
 [node name="Witch" parent="." instance=ExtResource("8_v7kby")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3808, 2, 3.06096)

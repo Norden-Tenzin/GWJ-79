@@ -13,6 +13,7 @@ var curr_gui_scene_name: GlobalEnums.SceneName
 
 # Levels
 # Level 1
+const level_1_0: String = "res://scenes/levels/level_1/level_1_0.tscn"
 const level_1_1: String = "res://scenes/levels/level_1/level_1_1.tscn"
 const level_1_2: String = "res://scenes/levels/level_1/level_1_2.tscn"
 const level_1_3: String = "res://scenes/levels/level_1/level_1_3.tscn"
@@ -21,7 +22,7 @@ const level_2_1: String = "res://scenes/levels/level_2/level_2_1.tscn"
 const level_2_2: String = "res://scenes/levels/level_2/level_2_2.tscn"
 const level_2_3: String = "res://scenes/levels/level_2/level_2_3.tscn"
 # TODO: PLACE HOLDER Level 3
-const level_3_1: String = "res://scenes/levels/level_2/level_2_1.tscn"
+const level_3_1: String = "res://scenes/levels/level_3/level_3_1.tscn"
 const level_3_2: String = "res://scenes/levels/level_2/level_2_2.tscn"
 const level_3_3: String = "res://scenes/levels/level_2/level_2_3.tscn"
 # UI
@@ -66,6 +67,8 @@ func get_scene(scene_name: GlobalEnums.SceneName) -> Node:
 			return load(settings_pause_menu).instantiate()
 		GlobalEnums.SceneName.EndScreen:
 			return load(end_screen).instantiate()
+		GlobalEnums.SceneName.Level1_0:
+			return load(level_1_0).instantiate()
 		GlobalEnums.SceneName.Level1_1:
 			return load(level_1_1).instantiate()
 		GlobalEnums.SceneName.Level1_2:

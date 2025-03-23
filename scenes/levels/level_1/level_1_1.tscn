@@ -69,7 +69,8 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.4294
 
 [node name="Portal" parent="." instance=ExtResource("5_x4cbf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, 4)
-next_lvl = 4
+next_lvl = 7
+transition_type = 1
 
 [node name="Candy" parent="." instance=ExtResource("6_nqb5k")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5469, 1.75, 4.00128)

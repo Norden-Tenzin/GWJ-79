@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://de455tsnt2shk"]
+[gd_scene load_steps=19 format=3 uid="uid://de455tsnt2shk"]
 
 [ext_resource type="Script" uid="uid://cy8grkel5jdvc" path="res://components/level_component/area_3d.gd" id="1_dfwkg"]
 [ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="1_gxte6"]
+[ext_resource type="Script" uid="uid://crptc1ysksq41" path="res://components/level_component/Level.gd" id="1_q8jj8"]
 [ext_resource type="PackedScene" uid="uid://2nm7fdrdekse" path="res://scenes/portal/portal.tscn" id="3_dfwkg"]
 [ext_resource type="MeshLibrary" uid="uid://uw36bqwkii8h" path="res://components/level_component/level_mesh_lib.tres" id="3_rcm4j"]
 [ext_resource type="PackedScene" uid="uid://5g586dy1b12s" path="res://scenes/candy/candy.tscn" id="4_rcm4j"]
@@ -33,6 +34,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Level2" type="Node3D"]
+script = ExtResource("1_q8jj8")
 
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("1_dfwkg")
@@ -71,7 +73,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, 1)
 
 [node name="Portal" parent="." instance=ExtResource("3_dfwkg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 1)
-next_lvl = 6
+next_lvl = 9
+transition_type = 1
 
 [node name="Candy" parent="." instance=ExtResource("4_rcm4j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.75, 1)

@@ -32,7 +32,7 @@ sky = SubResource("Sky_ylp8c")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="Level2" type="Node3D"]
+[node name="Level3" type="Node3D"]
 script = ExtResource("1_l6grw")
 
 [node name="Area3D" type="Area3D" parent="."]
