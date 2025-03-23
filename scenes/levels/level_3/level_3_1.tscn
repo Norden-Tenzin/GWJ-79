@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dhv7b3snqk6cr"]
+[gd_scene load_steps=22 format=3 uid="uid://dhv7b3snqk6cr"]
 
 [ext_resource type="PackedScene" uid="uid://hxhu0yda644h" path="res://scenes/Level.tscn" id="1_rlc0b"]
 [ext_resource type="MeshLibrary" uid="uid://uw36bqwkii8h" path="res://components/level_component/level_mesh_lib.tres" id="2_gu7i8"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cjtqqhrxeopnv" path="res://assets/level_editor/walls/lattice.tscn" id="15_i021w"]
 [ext_resource type="PackedScene" uid="uid://ctn6k35xldqmu" path="res://assets/art/candies/pop.tscn" id="16_nlgas"]
 [ext_resource type="PackedScene" uid="uid://c5vbo5cgij57a" path="res://assets/art/candies/candy_cane.tscn" id="17_vco0k"]
+[ext_resource type="PackedScene" uid="uid://ckolfhvexbvj2" path="res://assets/art/clouds.tscn" id="18_bmggu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tanis"]
 albedo_color = Color(0.82, 0.80934, 0.1804, 1)
@@ -146,6 +147,9 @@ transform = Transform3D(1.22143, 0.25541, -0.0162189, -0.244422, 1.18763, 0.2952
 
 [node name="Pop4" parent="." index="32" instance=ExtResource("16_nlgas")]
 transform = Transform3D(3.15612, 0.642622, -1.35319, -1.41194, 2.33048, -2.18643, 0.500498, 2.52212, 2.36508, 1.70683, 8.339, -8.56417)
+
+[node name="Clouds" parent="." index="33" instance=ExtResource("18_bmggu")]
+transform = Transform3D(0.482963, 0, 0.12941, 0, 0.5, 0, -0.12941, 0, 0.482963, -35.3129, -5.51649, -1.20806)
 
 [connection signal="plate_state_changed" from="PressurePlate" to="VanishingWall" method="_on_plate_state_changed"]
 

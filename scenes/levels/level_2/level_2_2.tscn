@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cu8mwtfdqvqg0"]
+[gd_scene load_steps=23 format=3 uid="uid://cu8mwtfdqvqg0"]
 
 [ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="1_7wxml"]
 [ext_resource type="Script" uid="uid://cy8grkel5jdvc" path="res://components/level_component/area_3d.gd" id="1_jnr31"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://nxqnlix2erry" path="res://assets/art/textures/Brick_Tiles_Normal_DirectX.png" id="12_bbsjf"]
 [ext_resource type="PackedScene" uid="uid://c5vbo5cgij57a" path="res://assets/art/candies/candy_cane.tscn" id="13_scy8t"]
 [ext_resource type="PackedScene" uid="uid://ctn6k35xldqmu" path="res://assets/art/candies/pop.tscn" id="14_bbsjf"]
+[ext_resource type="PackedScene" uid="uid://ckolfhvexbvj2" path="res://assets/art/clouds.tscn" id="15_sgugf"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v0mcw"]
 
@@ -128,6 +129,9 @@ transform = Transform3D(1.99729, -0.239823, -0.338993, 0.144602, 1.96283, -0.536
 
 [node name="Pop3" parent="." instance=ExtResource("14_bbsjf")]
 transform = Transform3D(0.936127, 0.27677, -0.216945, -0.228683, 0.947768, 0.222349, 0.267153, -0.158535, 0.950524, 9.14441, 3.79169, -2.54304)
+
+[node name="Clouds" parent="." instance=ExtResource("15_sgugf")]
+transform = Transform3D(0.482963, 0, -0.12941, 0, 0.5, 0, 0.12941, 0, 0.482963, -16.1778, -5.51649, -16.8764)
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
 [connection signal="candy_picked_up" from="Candy" to="Player" method="_on_node_eat_candy"]

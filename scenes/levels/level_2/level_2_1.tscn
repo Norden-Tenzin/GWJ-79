@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c346n7cehlcyx"]
+[gd_scene load_steps=16 format=3 uid="uid://c346n7cehlcyx"]
 
 [ext_resource type="PackedScene" uid="uid://2p34a5pdrnq4" path="res://player/player.tscn" id="1_mi37v"]
 [ext_resource type="Script" uid="uid://cy8grkel5jdvc" path="res://components/level_component/area_3d.gd" id="1_ngjme"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c36o0g6t3nbc7" path="res://scenes/gates/gate_small.tscn" id="8_o7mni"]
 [ext_resource type="PackedScene" uid="uid://ctn6k35xldqmu" path="res://assets/art/candies/pop.tscn" id="9_e1hno"]
 [ext_resource type="PackedScene" uid="uid://c5vbo5cgij57a" path="res://assets/art/candies/candy_cane.tscn" id="10_ff3ta"]
+[ext_resource type="PackedScene" uid="uid://ckolfhvexbvj2" path="res://assets/art/clouds.tscn" id="11_ypltp"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v0mcw"]
 
@@ -100,5 +101,8 @@ transform = Transform3D(-1.266, -0.431039, 0.247104, -0.474991, 1.24841, -0.2558
 
 [node name="Candy Cane3" parent="." instance=ExtResource("10_ff3ta")]
 transform = Transform3D(1.10888, 0.383752, 0.19803, -0.427133, 1.05499, 0.347337, -0.0635541, -0.39474, 1.12082, -0.270008, 3.97588, 8.48502)
+
+[node name="Clouds" parent="." instance=ExtResource("11_ypltp")]
+transform = Transform3D(0.482963, 0, 0.12941, 0, 0.5, 0, -0.12941, 0, 0.482963, -22.0341, -7.57798, -20.8764)
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
