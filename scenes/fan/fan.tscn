@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://c8q0jxygtgkut"]
+[gd_scene load_steps=26 format=4 uid="uid://c8q0jxygtgkut"]
 
 [ext_resource type="Script" uid="uid://6b8waj1d0lqo" path="res://scenes/fan/fan.gd" id="1_lgoi2"]
 [ext_resource type="Shader" path="res://components/level_component/wind.gdshader" id="2_k1ra6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cbxmwyikpbg7s" path="res://assets/3d assets/pin wheel/wheel/wheel textures/wheelnormal.png" id="3_6sxuh"]
 [ext_resource type="PackedScene" uid="uid://dbma7iytxf8su" path="res://components/area_component/area_component.tscn" id="3_eu6rs"]
 [ext_resource type="Texture2D" uid="uid://cohcqwcvirecn" path="res://assets/3d assets/pin wheel/wheel/wheel textures/wheel roughness.png" id="4_wuw4f"]
+[ext_resource type="Script" uid="uid://bhtvdyt04aly4" path="res://scenes/fan/blades.gd" id="5_7yfyn"]
 [ext_resource type="Texture2D" uid="uid://ph233x8pxi1q" path="res://assets/3d assets/pin wheel/pin/pin texture/pin base colorpng.png" id="5_ii8wr"]
 [ext_resource type="Texture2D" uid="uid://dbjqrhorynw52" path="res://assets/3d assets/pin wheel/pin/pin texture/Pin bump.png" id="6_7yfyn"]
 [ext_resource type="Texture2D" uid="uid://biaogt34u8igo" path="res://assets/3d assets/pin wheel/pin/pin texture/Pin normals.png" id="7_v8ek8"]
@@ -161,6 +162,7 @@ script = ExtResource("1_lgoi2")
 transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 0.0046041, 0.00284052, 0.00223732)
 mesh = SubResource("ArrayMesh_ii8wr")
 skeleton = NodePath("../Pole")
+script = ExtResource("5_7yfyn")
 
 [node name="Pole" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00203025, 0.00284052, 0.000984907)

@@ -95,6 +95,8 @@ func _physics_process(_delta: float) -> void:
 func push_away_rigid_bodies() -> void:
 	if current_animation != AnimationState.Pushing && current_animation != AnimationState.Pushing_pose:
 		return
+	elif player_state == GlobalEnums.PlayerState.Small:
+		return 
 	for i in get_slide_collision_count():
 		var collision_obj: KinematicCollision3D = get_slide_collision(i)
 		if collision_obj.get_collider() is RigidBody3D:
@@ -139,11 +141,11 @@ func wind_effect() -> void:
 	# TODO: pick a push_force
 	match player_state:
 		GlobalEnums.PlayerState.Small:
-			velocity += final_push_direction * wind_force
+			velocity += final_push_direction * wind_force * 3
 		GlobalEnums.PlayerState.Normal:
-			velocity += final_push_direction * wind_force
+			velocity += final_push_direction * wind_force * 1.5
 		GlobalEnums.PlayerState.Big:
-			velocity += final_push_direction * wind_force
+			velocity += final_push_direction * wind_force * 0.75
 
 func get_closest_node_on_body(body: RigidBody3D) -> Node3D:
 	var closest_node: Node3D = null

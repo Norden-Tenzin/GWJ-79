@@ -85,5 +85,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.83881, 2, -1.29391)
 [node name="Fan" parent="." instance=ExtResource("10_othgr")]
 transform = Transform3D(0.0245194, 0, 0.999699, 0, 1, 0, -0.999699, 0, 0.0245194, 3.64403, 3.32488, -6.29511)
 
+[node name="Fan2" parent="." instance=ExtResource("10_othgr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.67125, 3, 6.25007)
+
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
