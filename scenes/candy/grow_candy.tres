@@ -1,14 +1,16 @@
-[gd_resource type="Resource" script_class="CandyStats" load_steps=4 format=3 uid="uid://bhe00bfbkd2mn"]
+[gd_resource type="Resource" script_class="CandyStats" load_steps=5 format=3 uid="uid://bhe00bfbkd2mn"]
 
 [ext_resource type="ArrayMesh" uid="uid://b4rf4iebocq5" path="res://assets/art/meshes/disc.tres" id="1_d8m35"]
 [ext_resource type="Script" uid="uid://xlnymbtxod8j" path="res://scenes/candy/candy_stats.gd" id="1_jxrop"]
 [ext_resource type="Material" uid="uid://my522f1pefnw" path="res://assets/art/materials/disc.tres" id="1_xivru"]
+[ext_resource type="Material" uid="uid://s5pab4ss7ft8" path="res://assets/art/materials/candy_fresnel.tres" id="2_j0wr8"]
 
 [resource]
 script = ExtResource("1_jxrop")
 type = 0
 mesh = ExtResource("1_d8m35")
 material = ExtResource("1_xivru")
+material_overlay = ExtResource("2_j0wr8")
 growth_amount = 0.0
 jump_velocity_change = 0.0
 metadata/_custom_type_script = "uid://xlnymbtxod8j"
