@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://opqubu6bo1ht"
-path="res://.godot/imported/button_square_depth_border.svg-91a1a616dddf1c22a017a322340fb542.ctex"
+uid="uid://cebbfh4dlbmex"
+path="res://.godot/imported/button_square_depth_flat.svg-451417a9c2c9edde51546828043f31ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/yellow/button_square_depth_border.svg"
-dest_files=["res://.godot/imported/button_square_depth_border.svg-91a1a616dddf1c22a017a322340fb542.ctex"]
+source_file="res://assets/audio/ui/gray/button_square_depth_flat.svg"
+dest_files=["res://.godot/imported/button_square_depth_flat.svg-451417a9c2c9edde51546828043f31ec.ctex"]
 
 [params]
 

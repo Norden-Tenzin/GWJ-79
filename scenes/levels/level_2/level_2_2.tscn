@@ -51,6 +51,7 @@ size = Vector3(1, 2, 2)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_h3l7u")
+music_name = 4
 
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("1_jnr31")

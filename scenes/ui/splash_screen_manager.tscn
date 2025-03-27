@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://rw2udorc0ue"]
+[gd_scene load_steps=3 format=3 uid="uid://cwx43wi26m6pl"]
 
 [ext_resource type="Script" uid="uid://bkmmbga5nhc1p" path="res://scenes/ui/splash_screen_manager.gd" id="1_bk6lo"]
 [ext_resource type="Texture2D" uid="uid://cn7dkxyg75i6c" path="res://assets/splash_screens/button-light.png" id="1_fmtus"]

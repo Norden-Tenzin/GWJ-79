@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://br3njsw4cgwcn"]
+
+[ext_resource type="Script" uid="uid://2pr4lrtg3fpc" path="res://scenes/camera/camera_3d.gd" id="1_6m2n3"]
+[ext_resource type="Shader" uid="uid://1h1tvc0y337d" path="res://scenes/camera/pixel.gdshader" id="1_xejhd"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_6m2n3"]
+flip_faces = true
+size = Vector2(2, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lqhut"]
+render_priority = 0
+shader = ExtResource("1_xejhd")
+shader_parameter/shadows_enabled = true
+shader_parameter/highlights_enabled = true
+shader_parameter/shadow_strength = 0.4
+shader_parameter/highlight_strength = 0.1
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+
+[node name="Camera3D" type="Camera3D"]
+projection = 1
+fov = 160.312
+size = 4.685
+near = 0.001
+script = ExtResource("1_6m2n3")
+
+[node name="Postprocess" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.5, 0, 0, 0, 1, 0, 0, 0, 2.5, 0.0105586, 0.0103345, -1.26266)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_6m2n3")
+surface_material_override/0 = SubResource("ShaderMaterial_lqhut")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3qvv8232y86g"
-path="res://.godot/imported/slide_hangle.svg-3e4c589fca7965dc437972d5ca9aecc6.ctex"
+uid="uid://bhsyfkou26q3y"
+path="res://.godot/imported/button_rectangle_depth_gloss.svg-5bac71eeda21baf00196f32d9790f5b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/yellow/slide_hangle.svg"
-dest_files=["res://.godot/imported/slide_hangle.svg-3e4c589fca7965dc437972d5ca9aecc6.ctex"]
+source_file="res://assets/audio/ui/yellow/button_rectangle_depth_gloss.svg"
+dest_files=["res://.godot/imported/button_rectangle_depth_gloss.svg-5bac71eeda21baf00196f32d9790f5b3.ctex"]
 
 [params]
 

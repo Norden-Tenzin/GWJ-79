@@ -22,6 +22,7 @@ enum MusicName {
 }
 
 enum SceneName {
+	SplashScreenManager,
 	MainMenu,
 	SettingsMainMenu,
 	SettingsPauseMenu,

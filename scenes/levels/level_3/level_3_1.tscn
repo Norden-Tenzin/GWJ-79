@@ -55,6 +55,7 @@ height = 3.96045
 radius = 1.28271
 
 [node name="Level3-1" instance=ExtResource("1_rlc0b")]
+music_name = 5
 
 [node name="GridMap" parent="." index="1"]
 data = {

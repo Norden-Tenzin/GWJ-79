@@ -33,6 +33,7 @@ glow_enabled = true
 
 [node name="Level2" type="Node3D"]
 script = ExtResource("1_3metk")
+music_name = 4
 
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("1_ngjme")

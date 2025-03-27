@@ -26,6 +26,7 @@ const level_3_1: String = "res://scenes/levels/level_3/level_3_1.tscn"
 const level_3_2: String = "res://scenes/levels/level_2/level_2_2.tscn"
 const level_3_3: String = "res://scenes/levels/level_2/level_2_3.tscn"
 # UI
+const splash_screen_manager: String = "res://scenes/ui/splash_screen_manager.tscn"
 const main_menu: String = "res://scenes/ui/main_menu.tscn"
 const pause_menu: String = "res://scenes/ui/pause_menu.tscn"
 const settings_main_menu: String = "res://scenes/ui/settings_main_menu.tscn"
@@ -34,7 +35,13 @@ const end_screen: String = "res://scenes/ui/end_screen.tscn"
 
 func _ready() -> void:
 	Global.scene_manager = self
-	curr_gui_scene = $GUI/SplashScreenManager
+	self.change_gui_scene(
+		GlobalEnums.SceneName.SplashScreenManager,
+		true,
+		false,
+		false,
+	)
+	#curr_gui_scene = $GUI/SplashScreenManager
 
 # a pause menu
 func _input(_event: InputEvent) -> void:
@@ -54,9 +61,19 @@ func _input(_event: InputEvent) -> void:
 					false,
 					false
 				)
+	if Input.is_action_just_pressed("reset"):
+		if world3d.get_children().size() > 0:
+			var children: Array[Node] = gui.get_children()
+			if children.size() > 0:
+				pass
+			else:
+				if Dialogic.current_timeline == null:
+					reset_3d_scene()
 
 func get_scene(scene_name: GlobalEnums.SceneName) -> Node:
 	match scene_name:
+		GlobalEnums.SceneName.SplashScreenManager:
+			return load(splash_screen_manager).instantiate()
 		GlobalEnums.SceneName.MainMenu:
 			return load(main_menu).instantiate()
 		GlobalEnums.SceneName.PauseMenu:

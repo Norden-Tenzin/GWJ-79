@@ -23,6 +23,7 @@ var direction: Vector3
 func _ready() -> void:
 	Global.player = self
 	owner.connect("eat_candy", _eat_candy)
+	update_state()
 
 func _process(delta: float) -> void:
 	var root_pos: Vector3 = $AnimationTree.get_root_motion_position()
