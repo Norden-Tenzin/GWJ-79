@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/LV1loop.ogg-648fb712cfc4ceb1cc127009984a97a9.
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

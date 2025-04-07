@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cmldkqvn4d7j3" path="res://scenes/pressure_plate/vanishing_wall.tscn" id="11_iaha0"]
 [ext_resource type="Texture2D" uid="uid://cadmunweplou1" path="res://assets/art/textures/Brick_Tiles_Base_color.png" id="12_fol15"]
 [ext_resource type="Texture2D" uid="uid://nxqnlix2erry" path="res://assets/art/textures/Brick_Tiles_Normal_DirectX.png" id="13_i021w"]
-[ext_resource type="Script" uid="uid://dj2pe286ahlaj" path="res://scenes/levels/level_3/portal_end.gd" id="14_gs3g6"]
+[ext_resource type="Script" path="res://scenes/levels/level_3/portal_end.gd" id="14_gs3g6"]
 [ext_resource type="Shader" uid="uid://hvxatcltq76f" path="res://scenes/portal/gradient.gdshader" id="15_6hffv"]
 [ext_resource type="PackedScene" uid="uid://cjtqqhrxeopnv" path="res://assets/level_editor/walls/lattice.tscn" id="15_i021w"]
 [ext_resource type="PackedScene" uid="uid://dbma7iytxf8su" path="res://components/area_component/area_component.tscn" id="16_b5mq4"]
@@ -128,7 +128,7 @@ shape = SubResource("BoxShape3D_fol15")
 [node name="Portal" type="Node3D" parent="." index="19"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1073, 2.15168, 1.03825)
 script = ExtResource("14_gs3g6")
-next_lvl = 4
+next_lvl = 5
 transition_type = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Portal" index="0"]
