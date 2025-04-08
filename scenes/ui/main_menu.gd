@@ -2,6 +2,7 @@ extends Control
 
 func _ready() -> void:
 	Global.audio_manager.play(GlobalEnums.MusicName.Small)
+	print("HERE")
 
 # Menu
 func _on_start_game_button_pressed() -> void:
